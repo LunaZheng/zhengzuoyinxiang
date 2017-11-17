@@ -1,0 +1,17 @@
+.ul{
+    width: 900px; margin: 0px auto;overflow: hidden;
+}
+.sty{
+    height: 50px; line-height: 50px; border-bottom: 1px dashed silver; font-size: 16px; width: 900px;float: left
+}
+.sp1{
+    float: right; padding-right: 5px; color:#8F8F8F; font-size: 15px;
+}
+a{
+
+}
+a:hover{
+    color: #eea236;
+    text-decoration: none;
+     cursor: pointer;
+}

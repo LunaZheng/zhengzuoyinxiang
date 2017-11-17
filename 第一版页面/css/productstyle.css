@@ -1,0 +1,383 @@
+*{
+	margin: 0;
+	padding:0;
+    box-sizing: border-box;
+}
+html, body{
+    background-color: #fff;
+    color:#1b1b1b;
+    height:100%;
+    font-family: "STHeitiSC-Light","Microsoft YaHei","Arial";
+    line-height: 1;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+div
+{
+	outline:0 !important;
+	-webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);	
+	position:relative;
+}
+select{
+    position: absolute;
+    background:#fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+    min-height: 100%;
+    max-height: 100%;
+    outline: 0;
+    -webkit-appearance: none;
+    opacity: 0;
+}
+input{
+	width: 100%;
+    border: none;
+    outline: none;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+em, i{
+	font-style: normal;
+}
+
+
+/*-----------截止这里可以不要*/
+
+
+
+
+
+
+.c1{color: #f75f0c;}/* 橙色 */
+.c2{color: #9b9b9b;}
+.fr{float: right;}
+
+
+/* 列表页*/
+.list-bg{
+	width: 100%;
+	max-width: 1900px;
+	height: 484px;
+	overflow: hidden;
+}
+.list-container{
+	width: 1200px;
+	margin: auto;
+}
+.list-type{
+	font-size: 18px;
+	padding: 34px 10px 0;
+}
+.list-type .head{
+	color: #1b1b1b;
+	margin-right: 56px;
+	float: left;
+	line-height: 48px;
+	position: absolute;
+}
+.list-type .body{
+	/*display: inline-block;*/
+	min-height: 48px;
+	margin-left: 110px;
+	/*height: 148px;*/
+}
+.list-type .body .tgr{
+	display: inline-block;
+	color: #1b1b1b;
+	padding: 0px 28px;
+	/*position: relative;*/
+	line-height: 48px;
+}
+.list-type .body .tgr:first-child{
+	background: #f5f5f5;
+}
+.list-type .body .tgr:first-child .icon-arrow{
+	background-image: url(../img/up.png);
+}
+.list-type .body .tgr:hover{
+	cursor: pointer;
+}
+.list-type .body .icon-arrow{
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    background-image: url(../img/down.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+}
+.list-type .type-panel{
+	background: #fff;
+	width: 90%;
+	/*max-height: 78px;*/
+	/*overflow-y: scroll;*/
+	position: relative;
+    left: 10%;
+    /*top: 50px;*/
+    z-index: 2;
+    border: 1px solid  #ccc;
+    padding: 10px;
+	margin-top: 10px;
+}
+.list-type .type-panel a{
+	display: inline-block;
+	margin-right: 20px;
+	color: #1b1b1b;
+	line-height: 26px;
+	border: 1px solid transparent;
+}
+.list-type .type-panel a:visited, .list-type .type-panel a:link, .list-type .type-panel a:active{
+	text-decoration: none !important;
+}
+.list-type .type-panel a.checka {
+	border: 1px solid #999;
+	border-radius: 4px;
+}
+.sort{
+	font-size: 18px;
+	height: 66px;
+	background-color: #f5f5f5;
+	position: relative;
+}
+.sort::after{
+	clear: both;
+	content: '';
+	height: 0;
+	overflow: hidden;
+	display: block;
+}
+.sort .label{
+	color: #12eac6;
+    background-color: #fff;
+    padding: 23px 16px;
+    border: 1px solid #12eac6;
+    float: left;
+    margin-right: 10px;
+}
+.sort .list-page{
+	position: absolute;
+	right: 22px;
+	top: 28px;
+}
+.sort .list-page .total{
+	float: left;
+	margin-right: 20px;
+}
+.sort .list-page .total-num{
+	display: inline-block;
+}
+.list-page .total-num a{
+	border: 1px solid #dcdcdc;
+	color: #939393;
+	padding: 4px;
+}
+.list-content{
+	padding-bottom: 132px;
+	margin-right: -30px;
+}
+.list-content::after{
+	content: '';
+	height: 0;
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+.list-content .list-item{
+	width: 380px;
+	height: 470px;
+	border: 1px solid #d2d2d2;
+	float: left;
+	margin-right: 30px;
+	margin-top: 35px;
+}
+.list-content .list-item img{
+	max-width: 302px;
+	max-height: 242px	;
+	margin: 36px auto 83px 36px;
+}
+.list-content .ctx{
+	padding-left: 16px;
+	font-size: 20px;
+}
+.list-content .row{
+	padding: 0 40px 28px 16px;
+}
+.list-content .title{
+	color: #6f6f6f;
+}
+
+/*详情*/
+.detail-container{
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 63px;
+}
+.detail{
+
+}
+.detail .pic-box{
+	width: 562px;
+
+	float: left;
+}
+.pic{
+	border: 1px solid #d2d2d2;
+	width: 440px;
+	height: 440px;
+}
+.pic img{
+	max-width: 318px;
+	max-height: 420px;
+	margin-top: 10px;
+	margin-left: 52px;
+}
+.pic-list{
+	margin-left: -12px;
+}
+.pic-list li{
+	display: inline-block;
+	padding-top: 34px;
+	margin-left: 12px;
+	width: 94px;
+    height: 82px;
+    text-align: center;
+}
+.pic-list img{
+	max-width: 94px;
+	max-height: 82px;
+}
+.detail-right{
+	width: 638px;
+	display: inline-block;
+	overflow: hidden;
+}
+.detail-right .title{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #b1b1b1;
+	padding-left: 82px;
+	font-size: 20px;
+	color: #666666;
+}
+.des-operat{
+	padding-left: 82px;
+
+	height: 500px;
+}
+.describe{
+	font-size: 18px;
+	color: #666666;
+	line-height: 40px;
+	padding-top: 40px;
+}
+.describe .label{
+	width: 87px;
+	text-align: justify;
+}
+.operaion{
+	padding-top: 50px;
+	position: absolute;
+	bottom: 20px;
+}
+.oper-btn{
+	width: 196px;
+	line-height: 50px;
+	border: 1px solid #12eac6;
+	color: #12eac6;
+	font-style: 20px;
+	display: inline-block;
+	text-align: center;
+}
+.oper-btn:active{
+	background-color: #12eac6;
+	color: #1b1b1b;
+}
+.mian-wrap{
+	padding-top: 38px;
+}
+.tabbar{
+	/*border-bottom: 2px solid #b1b1b1;*/
+}
+.tabbar::after{
+	content: '';
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	display: block;
+}
+.tabbar li{
+	font-size: 22px;
+	color: #464646;
+	width: 152px;
+	line-height: 68px;
+	float: left;
+	margin-right: 30px;
+	text-align: center;
+}
+.tabbar li.active{
+	color: #12eac6;
+	border-bottom: 2px solid #12eac6;
+}
+.tabbar li:hover{
+	cursor: pointer;
+}
+.main-detail{
+	padding-top: 20px;
+	overflow: hidden;
+	border-top: 2px solid #b1b1b1;
+}
+.crago-desc{
+	
+}
+.crago-desc .desc{
+	line-height: 70px;
+	border: 1px solid #f5f5f5;
+}
+.crago-desc .desc::after{
+	content: '';
+	display: block;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+.crago-desc .desc li{
+	width: 596px;
+	float: left;
+}
+.crago-desc .desc em{
+	background-color: #f5f5f5;
+	width: 176px;
+	display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 30px;
+    text-align: justify;
+}
+.specific-desc{
+	text-align: center;
+	line-height: 50px;
+	padding: 70px 0 42px;
+}
+.specific-desc h2{
+	font-size: 30px;
+	color: #494949;
+}
+.specific-desc h2 span{
+	margin: 0 20px;
+	display: inline-block;
+}
+.specific-desc h3{
+	color: #909090;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+

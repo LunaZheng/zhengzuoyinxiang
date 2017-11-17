@@ -1,0 +1,41 @@
+.img{
+    width: 750px;
+    background: url(../img/pay_03.png) no-repeat;
+    margin: 0px auto;
+    text-align: center;
+    height: 609px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+}
+.num{
+    width: 105px;
+    padding: 0px;
+    margin: 0px;
+    height: 30px;
+    line-height: 35px;
+    text-align: right;
+    padding-right: 15px;
+}
+.roww{
+    margin: 0px auto;
+    width: 310px;
+    margin-top: 20px;
+}
+.text{
+    width: 150px;
+}
+#updateBtn{
+    margin: 0px auto;
+    width: 110px;
+    background-color:white;
+    border: 1px solid #E36C0E;
+    color: #000;
+}
+#OKBtn{
+    margin: 0px auto;
+    width: 110px;
+    background-color:#E36C0E;
+    border: 1px solid #E36C0E;
+    color: white;
+}

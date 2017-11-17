@@ -1,0 +1,137 @@
+/**
+*在Position属性值为absolute的同时，
+*如果有一级父对象（无论是父对象还是祖父对象，或者再高的辈分，一样）
+*的Position属性值为Relative时，则上述的相对浏览器窗口定位将会变成相对父对象定位，
+*这对精确定位是很有帮助的。
+*/
+*{
+    margin: 0;
+    padding: 0;
+	list-style-type:none;
+}
+a {
+    text-decoration: none;
+}
+/*nav导航盒子*/
+nav{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+}
+.imgnav{
+    float: left;
+    margin-top: 15px;
+    width: 270px;
+   padding-right: 20px;
+    margin-left: 50px;
+}
+.nav-main li{
+    float: left;
+}
+.nav1{
+    margin: 0px auto;
+    height:70px;
+    line-height: 70px;
+
+    text-align: center;
+    font-size: 12px;
+    background: #49CBCD;
+	/*margin:40px auto 0 auto;*/
+}
+
+
+/**nav-main*/
+ul.nav-main{
+    width:950px;
+    position: absolute;
+    left: 300px;
+    margin-left: 70px;
+ /*   width: 800px;*/
+   /* height: 100%;*/
+    list-style-type: none;
+}
+/*导航条设置*/
+ul.nav-main>li a{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 145px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    float: left;
+    font-size: 16px;
+   color: white;
+   /* background: #643519;*/
+    margin-right: 1px;
+    cursor: pointer;
+}
+ul.nav-main>li a:hover{
+    text-decoration: none;
+    background: #FFFFFF;
+    color: #000000;
+}
+ul.nav-main>li a.actives {
+    text-decoration: none;
+    background: #FFFFFF;
+    color: #000000;
+}
+
+/*隐藏盒子设置*/
+div.hidden-box a{
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-decoration: none;
+}
+div.hidden-box{
+    width: 145px;
+    border: none;
+    border-top: 0;
+    position: absolute;
+    z-index: 99;
+    display:none;
+    background:#fff;
+    top: 102px;
+}
+div.hidden-box li{
+    height: 50px;
+    line-height: 50px;
+    padding-bottom: 0px;
+}
+.hidden-box>ul{
+    list-style-type: none;
+    color: #643519;
+    cursor: pointer;
+}
+.hidden-box li:hover{
+    width: 145px;
+    height: 50px;
+    background: #9d9d9d;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-decoration: none;
+
+}
+.hidden-box li.actives1 {
+    text-decoration: none;
+    background: #9d9d9d;
+    color: #FFFFFF;
+}
+.hidden-box li a:hover{
+    color: white;
+}
+.hidden-loc-index{
+    left: 536px;
+}
+.hidden-loc-us{
+    left:1004px;
+}
+.hidden-loc-info{
+    left: 1160px;
+}
+
+.wrap {
+    width: 1340px;
+    margin: 0 auto;
+    height: 100%;
+}

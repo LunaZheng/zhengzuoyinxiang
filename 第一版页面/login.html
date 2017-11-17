@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/login.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container" >
+    <h3 class="text-center" style="margin-top: 110px; margin-bottom: 90px;font-weight: bold;">正卓印象后期制作管理中心</h3>
+    <form class="center-form" role="form" id="loginForm">
+        <div class="form-group has-feedback div"  style="margin-bottom: 30px;">
+                    <select id="key" class="form-control" class="img2">
+                        <option value="1">key</option>
+                    </select>
+                <span class="fa form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback div">
+           <div class="img">账号
+            <input type="text" class="form-control text" id="account" placeholder="注册时使用的手机号" required autofocus="" data-error="请填写手机号"  />
+            <span class="fa form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+           </div>
+        </div>
+        <div class="form-group has-feedback div">
+            <div class="img1">密码
+            <input type="password" class="form-control text" id="password" placeholder="密码" required data-error="请填写密码"/>
+            <span class="fa form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+                </div>
+        </div>
+        <div class="form-group div1" style="margin-bottom: 10px; margin-top: 10px;">
+            <input id="rememberUserName" class="icheckBox" type="checkbox" />
+            <label for="rememberUserName"><span style="color: orange;">记住我</span>，以后自动登录</label>
+        </div>
+        <div class="form-group div1" >
+            <button type="submit" class="btn btn-primary btn-block" id="loginBtn">登录</button>
+        </div>
+    </form>
+</div>
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>

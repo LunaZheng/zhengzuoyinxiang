@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="css/Personal.css" rel="stylesheet" type="text/css"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!--1、头部!-->
+<div class="header">
+    <div class="container">
+        <div class="header-left">
+            <p><span aria-hidden="true"></span>你好！admin</p>
+        </div>
+        <div class="header-right">
+            <ul>
+                <li class="return"><a href="#">安全退出</a></li>
+                <li>|</li>
+                <li class="paws"><a href="#">修改密码</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--1、导航部分!-->
+<div class="nav">
+    <div class="imgnav">
+        <img src="img/index_03.png">
+    </div>
+    <!--nav-->
+    <div class="nav1">
+        <!--导航条-->
+        <ul class="nav-main">
+            <li><a href="index.html">首页</a></li>
+            <li id="li-1"><a href="productShow.html">产品展示</a></li>
+            <li><a href="popularActivities.html">人气活动</a></li>
+            <li><a href="orderList.html" class="xialaguang" >订单查询</a></li>
+            <li id="li-2"><a class="xialaguang">财务管理</a></li>
+            <li id="li-3"><a class="actives">个人中心</a></li>
+        </ul>
+        <!--隐藏盒子-->
+        <div id="box-1" class="hidden-box hidden-loc-index">
+            <ul>
+                <li><a href="productSetup.html">产品设置</a></li>
+            </ul>
+        </div>
+        <div id="box-2" class="hidden-box hidden-loc-us">
+            <ul>
+                <li><a href="information.html">账户信息</a></li>
+                <li><a href="moneyPro.html">充值列表</a></li>
+                <li><a href="accountList.html">对账单</a></li>
+            </ul>
+        </div>
+        <div id="box-3" class="hidden-box hidden-loc-info">
+            <ul>
+                <li><a href="company.html" >公司信息</a></li>
+                <li><a href="Personal.html">个人信息</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--内容-->
+<div class="container">
+    <div class="row img">
+        <div class="row roww">
+            <div class="col-xs-1 num">
+                <label><img src="img/pro_03(1).png" class="imgsrc">账号:</label>
+            </div>
+            <div>
+                <input type="text" class="form-control text" id="compneyname" placeholder="账号"autofocus/>
+            </div>
+        </div>
+        <div class="row roww">
+            <div class="col-xs-1 num">
+                <label><img src="img/pro_06(1).png" class="imgsrc">昵称:</label>
+            </div>
+            <div>
+                <input type="text" class="form-control text" id="comAddress" placeholder="昵称"autofocus/>
+            </div>
+        </div>
+        <div class="row roww">
+            <div class="col-xs-1 num">
+                <label><img src="img/pro_08(1).png"  style="padding-right: 22px;">工作岗位:</label>
+            </div>
+            <div>
+                <input type="text" class="form-control text" id="address" placeholder="工作岗位"autofocus/>
+            </div>
+        </div>
+        <div class="row roww">
+            <div class="col-xs-1 num">
+                <label><img src="img/pro_10.png" style="padding-right: 22px;">真实姓名:</label>
+            </div>
+            <div>
+                <input type="text" class="form-control text" id="callname" placeholder="真实姓名"autofocus/>
+            </div>
+        </div>
+        <div class="row roww">
+            <div class="col-xs-1 num">
+                <label><img src="img/pro_13.png" style="padding-right: 37px;">手机号:</label>
+            </div>
+            <div>
+                <input type="text" class="form-control text" id="call" placeholder="手机号"autofocus/>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--底部-->
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8" style="line-height: 25px; margin-top: 28px;">
+                    <p>Copyright 2014杭州市正卓电子商务有限公司 版权所有<br>地址：中国浙江省杭州市萧山区</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-5 text-right">
+                        <img src="img/index_29.png">
+                    </div>
+                    <div class="col-md-7" style="line-height: 30px;">
+                        <p>联系方式：<br>电话：400-711-6999<br>邮箱：vienmu@126.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<script>
+    $(function(){
+        /*导航条开始*/
+        var num;
+        $('.nav-main>li[id]').hover(function(){
+            var Obj = $(this).attr('id');
+            num = Obj.substring(3, Obj.length);
+            $('#box-'+num).slideDown(0);
+            /*下拉框出现*/
+        },function(){
+            /*下拉框消失*/
+            $('#box-'+num).hide();
+        });
+        $('.hidden-box').hover(function(){
+            $(this).show();
+            $(this).removeClass('hover');
+        },function(){
+            $(this).slideUp(0);
+            $(this).removeClass('hover');
+        });
+
+        /*导航条结束*/
+
+
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+.sp1{
+    display: block;margin-top: 40px;margin-bottom: 40px;
+}
+.sp1 a{
+    text-decoration: none;
+
+}
+.sp2{
+    margin: 0px auto; width: 985px; display: block;margin-top: 20px;
+}
+.sp3{
+    text-indent:2em;height: 30px;line-height: 30px;margin-top: 30px;color: #666666;
+}

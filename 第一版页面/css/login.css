@@ -1,0 +1,111 @@
+
+body {
+    background: #FFF url("../img/loginbg.png") repeat-y center top;
+    font-family: 微软雅黑;
+}
+.div{
+    border: 1px solid #CECECE;
+    height: 40px;
+    width: 350px;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+.titlebig{
+    margin-top: 110px; margin-bottom: 90px;font-weight: bold;
+}
+.up{
+    margin: 0px auto; width: 76px;
+}
+.div1{
+    height: 40px;
+    width: 350px;
+    margin: 0px auto;
+   /* margin-top: 20px;*/
+}
+.img{
+    background: url(../img/login_03.png) no-repeat left center;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 20px;
+   margin-left: 10px;
+
+}
+.img1{
+    background: url(../img/login_06.png) no-repeat left center;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 20px;
+    margin-left: 10px;
+
+}
+.img2{
+    background: url(../img/login_10.png) no-repeat left center;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 23px;
+    margin-left: 12px;
+
+}
+.img11{
+    background: url(../img/login_06.png) no-repeat left center;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 20px;
+    margin-left: 10px;
+}
+.text1{
+    border: none;
+    width: 317px;
+    height: 38px;
+}
+.btnUpdate{
+    width: 350px;
+    margin: 0px auto;
+    margin-top: 30px;
+}
+#btnUpdate{
+    height: 40px;
+    width: 350px;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-family: '微软雅黑';
+    background-color: #49CBCD;
+}
+#loginForm{
+    width: 500px;
+    margin: 0px auto;
+    background-color: white;
+    height: 400px;
+    padding-top: 20px;
+}
+.text{
+    width: 285px;
+    margin: 0px auto;
+}
+#account{
+    height: 37px;
+    line-height: 35px;
+    display: inline;
+    border: none;
+}
+
+#password{
+    height: 37px;
+    line-height: 35px;
+    display: inline;
+    border: none;
+}
+#key{
+    height: 37px;
+    line-height: 35px;
+    display: inline;
+    border: none;
+}
+#loginBtn{
+    height: 40px;
+    background-color: #49CBCD;
+    color: white;
+    border: none;
+    font-size:18px ;
+    font-family: '微软雅黑';
+}
