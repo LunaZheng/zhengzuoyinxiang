@@ -14,6 +14,119 @@
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<style>
+    /* 内容 */
+    .orderList {
+        text-align: center;
+    }
+
+    /* 搜索框 */
+    .search-box {
+        margin: 0 auto; 
+        // display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        height: 130px;
+        padding-left: 44px;
+        margin-left: 80px;
+        text-align: left;
+    }
+    .search-box span {
+        line-height: 130px;
+    }
+    .search-box .btn {
+        height: 36px;
+    }
+    .search-box > input {
+        margin-right: 30px;
+        vertical-align: middle;
+        height: 36px;
+        width: 150px;
+        border: 1px solid #dcdcdc;
+    }
+    .search-box .btn-group {
+        margin-right: 30px;
+    }
+    .search-box .btn-group > button {
+        border: 1px solid #dcdcdc;
+        width: 132px;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 0px;
+        padding: 0px;
+        text-align: left;
+        padding-left: 10px;
+        font-weight: bold;
+    }
+    .search-box .btn-group > button .caret-box {
+        display: inline-block;
+        float: right;
+        height: 35px;
+        width: 25px;
+        background: #bcbcbc; 
+        position: relative;   
+    }
+    .search-box .btn-group > button .caret-box .caret {
+        position: absolute;
+        top: 16px;
+        left: 8px;
+        color: #7b7b7b;
+        transform: scaleX(1.5);
+        transform: scaleY(2.5);
+    }
+    .dropdown-menu {
+        min-width: 132px;
+        border-radius: 0px;
+    }
+
+    /* 列表 */
+    .list-box {
+        border: 1px solid #49cbcd;
+        margin: 0 auto;
+        margin-bottom: 150px;
+    }
+    .list-box th,  .list-box td{
+        height: 80px;
+        text-align: center;
+        word-wrap: break-word;
+        width: 8.2%;
+        width: 170px;
+        padding: 10px;
+    }
+    .list-box thead {
+        background: #49cbcd;
+        color: #fff;
+    }
+    .list-box tbody tr:nth-child(2n-1) {
+        background: #eff8f7;
+    }
+    .list-box tbody tr td:nth-child(2) {
+        color: #E36C0D;
+    }
+
+    /* 分页 */
+    ul.pagination {
+        display: inline-block;
+        margin-bottom: 46px;
+    }
+    .pagination > li > a, .pagination > li > span{
+        margin-right: 12px;
+        padding: 9px 25px;
+        color: #333;
+    }
+    .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+        background-color: #49cbcd;
+        border-color: #49cbcd;
+    }
+    .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+        border-radius: 0px;
+    }
+    .pagination > li > a.morePage, .pagination > li > span {
+        background: #fff;
+        border: none;
+        padding: 9px 8px;
+    }
+</style>
 <!--1、头部!-->
 <div class="header">
     <div class="wrap">
@@ -69,19 +182,13 @@
     </div>
 </div>
 <!--内容-->
-<div class="wrap content">
+<div class="wrap content orderList">
     <!-- 搜索框 -->
     <div class="search-box">
-        <span>充值时间:</span><input type="time">
-        <span>客户名:</span><input type="text">
-        <!-- <select name="" id="">
-            <option value="">订单状态</option>
-            <option value="">状态001</option>
-            <option value="">状态002</option>
-            <option value="">状态003</option>
-        </select> -->
+        <span>充值时间：</span><input type="time">
+        <span>客户名：</span><input type="text">
         <div class="btn-group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">订单状态 <span class="caret"></span></button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">订单状态 <span class="caret-box"><i class="caret"></i></span></button>
           <ul class="dropdown-menu">
             <li><a href="#">状态001</a></li>
             <li><a href="#">状态002</a></li>
@@ -91,182 +198,104 @@
         </div>
         <button type="button" class="btn btn-warning">确定</button>
     </div>
+
+    <!-- 列表 -->
+    <table class="list-box" id="tb">
+        <thead>
+            <tr class="tab">
+                <th>序列号</th>
+                <th>订单号码</th>
+                <th>订购产品</th>
+                <th>数量</th>
+                <th>客户名</th>
+                <th>状态(尺寸)</th>
+                <th>下单时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>150014</td>
+                <td>相册</td>
+                <td>1</td>
+                <td>张三</td>
+                <td>已发货</td>
+                <td>2017-02-13</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>150014</td>
+                <td>相册</td>
+                <td>1</td>
+                <td>张三</td>
+                <td>已发货</td>
+                <td>2017-02-13</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>150014</td>
+                <td>相册</td>
+                <td>1</td>
+                <td>张三</td>
+                <td>已发货</td>
+                <td>2017-02-13</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>150014</td>
+                <td>相册123365231652165213</td>
+                <td>1</td>
+                <td>张三</td>
+                <td>已发货</td>
+                <td>2017-02-13</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>150014</td>
+                <td>相册</td>
+                <td>1</td>
+                <td>张三张三张三张三张三张三41265165张三张三张三张三张三张三</td>
+                <td>已发货</td>
+                <td>2017-02-13</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 分页 -->
+    <ul class="pagination">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#" class="morePage">...</a></li>
+        <li><a href="#">24</a></li>
+        <li><a href="#" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+    </ul>
 </div>
-<!-- <div class="container">
-    <div class="row first" style="height: 130px;">
-        <div class="row" style="margin-left: 5px;">
-            <div class="col-xs-1 num">
-                <label>订单编号:</label>
-            </div>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="listId" placeholder="订单编号" data-date="2016-12-01"
-                       data-date-format="yyyy-mm-dd" autofocus/>
-            </div>
-            <div class="col-xs-1 num">
-                <label>产品名:</label>
-            </div>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="listAccount" placeholder="账单号" autofocus/>
-            </div>
-            <div class="col-xs-1 num">
-                <label>产品编号:</label>
-            </div>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="listidpro" placeholder="账单号" autofocus/>
-            </div>
-            <div class="col-xs-1 num">
-                <label>客户名:</label>
-            </div>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="name" placeholder="客户名" data-date="2016-12-01"
-                       data-date-format="yyyy-mm-dd" autofocus/>
-            </div>
-        </div>
-        <div class="row" style="margin-left: 5px;margin-top: 10px;">
-            <div class="col-xs-1 num">
-                <label>账单号:</label>
-            </div>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="listAccountid" placeholder="账单号" autofocus/>
-            </div>
-            <div class="col-xs-1 num">
-                <label>生产进度:</label>
-            </div>
-            <div class="col-xs-2">
-                <select id="pro" class="form-control" >
-                    <option value="1">key</option>
-                </select>
-            </div>
-            <div class="col-xs-1 num">
-                <label>充值时间:</label>
-            </div>
-            <div class="col-xs-2">
-                <input type="text" class="form-control" id="moneyDate" placeholder="充值时间" data-date="2016-12-01"
-                       data-date-format="yyyy-mm-dd" autofocus/>
-            </div>
-            <button type="button" class="btn" id="updateOk" style="width: 110px; height: 33px; margin-left: 40px;">确定</button>
-        </div>
-        <div class="row" style="margin-top: 13px; margin-left: 115px;">
-
-        </div>
-
-
-    </div>
-
-    <div class="row">
-        <div id="row" style="overflow-x: scroll;width: 900px; margin: 0px auto;  border: 1px solid #49CBCD;">
-            <table class="bordered" id="tb">
-                <thead>
-                <tr class="tab">
-                    <th>下单时间</th>
-                    <th>订单编号</th>
-                    <th>产品编号</th>
-                    <th>产品名称</th>
-                    <th>客户名</th>
-                    <th>规格(尺寸)</th>
-                    <th>价格</th>
-                    <th>开账单时间</th>
-                    <th>账单号</th>
-                    <th>生产进度</th>
-                    <th>出货时间</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tr>
-                    <td>DDsssssssssss</td>
-                    <td>甜蜜生活ssssss</td>
-                    <td>12英寸ssssss</td>
-                    <td>￥99</td>
-                    <td>398</td>
-                    <td>23CM*4CM</td>
-                    <td>甜蜜生活sssss</td>
-                    <td>12英寸</td>
-                    <td>￥99sssss</td>
-                    <td>相框</td>
-                    <td>2016-12-13</td>
-                    <td>删除</td>
-                </tr>
-                <tr>
-                    <td>相框</td>
-                    <td>甜蜜生活ssss</td>
-                    <td>12英寸dddddd</td>
-                    <td class="sp">￥99ddddd</td>
-                    <td><img src="img/click_03.png">398</td>
-                    <td>相框dddddd</td>
-                    <td>甜蜜生活ssss</td>
-                    <td>12英寸</td>
-                    <td>￥99ddddddd</td>
-                    <td>相框</td>
-                    <td>2016-12-13</td>
-                    <td>删除</td>
-                </tr>
-                <tr>
-                    <td>相框ssss</td>
-                    <td>甜蜜生活ddddddddd</td>
-                    <td>12英寸ddddddddddd</td>
-                    <td class="sp">￥99</td>
-                    <td><img src="img/click_03.png">398ddddddd</td>
-                    <td>相框fffffddddd</td>
-                    <td>甜蜜生活ssfffdddddd</td>
-                    <td>12英寸dddddd</td>
-                    <td>￥9ffffff</td>
-                    <td>相框eeeee</td>
-                    <td>2016-12-13</td>
-                    <td>删除</td>
-                </tr>
-                <tr>
-                    <td>相框</td>
-                    <td>甜蜜生活wwwwwwwwwwwww</td>
-                    <td>12英寸wwwwwwwwwwwwwwwwwww</td>
-                    <td class="sp">￥9wwwwwwwwwwwwwwwww9</td>
-                    <td><img src="img/click_03.png">398</td>
-                    <td>相框wwwwwwwwwwwwwwwwwww</td>
-                    <td>甜蜜生活wwwww</td>
-                    <td>12英寸wwww</td>
-                    <td>￥9wwwww</td>
-                    <td>相框</td>
-                    <td>2016-12-13dddd</td>
-                    <td>删除</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div id="pageGro" class="cb">
-        <div class="pageUp">上一页</div>
-        <div class="pageList">
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-            </ul>
-        </div>
-        <div class="pageDown">下一页</div>
-    </div>
-</div> -->
 <!--底部-->
-<!-- <footer>
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8" style="line-height: 25px; margin-top: 28px;">
-                    <p>Copyright 2014杭州市正卓电子商务有限公司 版权所有<br>地址：中国浙江省杭州市萧山区</p>
+<footer>
+    <div class="footer">
+        <div class="wrap">
+            <div class="footer-left">
+                <p>Copyright 2014杭州市正卓电子商务有限公司 版权所有<br>地址：中国浙江省杭州市萧山区</p>
+            </div>
+            <div class="footer-right">
+                <div class="code-box">
+                    <img src="img/index_29.png">
                 </div>
-                <div class="col-md-4">
-                    <div class="col-md-5 text-right">
-                        <img src="img/index_29.png">
-                    </div>
-                    <div class="col-md-7" style="line-height: 30px;">
-                        <p>联系方式：<br>电话：400-711-6999<br>邮箱：vienmu@126.com</p>
-                    </div>
+                <div class="text-box">
+                    <p>联系方式：</p>
+                    <p>电话：400-711-6999</p>
+                    <p>邮箱：vienmu@126.com</p>
                 </div>
             </div>
         </div>
     </div>
-</footer> -->
+</footer>
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -274,36 +303,7 @@
 
 <script>
     $(function () {
-        /*导航条开始*/
-        var num;
-        $('.nav-main>li[id]').hover(function(){
-            var Obj = $(this).attr('id');
-            num = Obj.substring(3, Obj.length);
-            $('#box-'+num).slideDown(0);
-            /*下拉框出现*/
-        },function(){
-            /*下拉框消失*/
-            $('#box-'+num).hide();
-        });
-        $('.hidden-box').hover(function(){
-            $(this).show();
-            $(this).removeClass('hover');
-        },function(){
-            $(this).slideUp(0);
-            $(this).removeClass('hover');
-        });
-
-        /*导航条结束*/
-        $('#moneyDate').datetimepicker();
-
-        var item = document.getElementById("tb");            //获取id为tb的元素(table)
-        var tbody = item.getElementsByTagName("tbody")[0];    //获取表格的第一个tbody元素
-        var trs = tbody.getElementsByTagName("tr");            //获取tbody元素下的所有tr元素
-        for (var i = 0; i < trs.length; i++) {//循环tr元素
-            if (i % 2 == 0) {
-                trs[i].style.backgroundColor = "#EFF8F7"; // 改变 符合条件的tr元素 的背景色.
-            }
-        }
+        
 
     })
 

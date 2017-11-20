@@ -353,7 +353,7 @@ ul {
     height: 50px;
     line-height: 50px;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
 }
 .nav-right>li:hover a, .nav-right>li a.actives{
     background: #fff;
@@ -371,6 +371,7 @@ ul {
     height: 50px;
     line-height: 50px;
     text-align: center;
+    font-size: 18px;
 }
 .nav-right li:hover .item-list {
     display: block;
@@ -385,12 +386,38 @@ ul {
     color: #000;
 }
 
-/* 内容 */
-.content {}
 
-/* 搜索框 */
-.search-box {
-    display: inline-block;
-    margin: 0 auto; 
+
+/* 底部 */
+.footer {
+    background: url(../img/footer-bg.png);
+    height: 182px;
 }
-.search-box span
+.footer .wrap {
+    padding: 0px 150px;
+}
+.footer .wrap > div, .footer .wrap .footer-right > div {
+    display: inline-block;
+}
+.footer .wrap .footer-left {
+    margin-top: 56px;
+    float: left;
+}
+.footer .wrap .footer-left p, .footer .wrap .footer-right p {
+    color: #828282;
+}
+.footer .wrap .footer-right {
+    float: right;
+    margin-top: 32px;
+}
+.footer .wrap .footer-right .text-box {
+    position: relative;
+    top: 30px;
+    left: 22px;
+}
+.footer .wrap .footer-right .text-box p {
+    padding-bottom: 8px;
+}
+.footer .wrap .footer-right p:nth-child(1) {
+    font-size: 20px;
+}

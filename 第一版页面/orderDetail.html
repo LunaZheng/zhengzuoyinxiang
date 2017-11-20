@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单详情</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/pageGroup.css"/>
+    <link rel="stylesheet" type="text/css" href="css/moneyPro.css"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<style>
+    .orderDetail > div h3 {
+       border-bottom: 1px solid #dfdfdf; 
+       padding: 36px 0px 20px;
+       margin: 0px;
+    }
+    .orderDetail > div p, .orderDetail > div .list {
+        color: #ababab;
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .orderDetail > div .list span {
+        position: relative;
+        left: 95px;
+    }
+    .orderDetail > div .list span:nth-child(1) {
+        left: 0px;
+    }
+    .orderDetail > div .more {
+        width: 500px;
+        text-align: center;
+    }
+    .orderDetail > div .more img {
+        cursor: pointer;
+    }
+    .orderDetail .orderItem :nth-child(4) span {
+        margin-right: 90px;
+    }
+    .orderDetail .orderItem table {
+        margin-top: 60px;
+        text-align: center;
+        border: 1px solid #e5e5e5;
+        margin-bottom: 238px;
+    }
+    .orderDetail .orderItem table th {
+        text-align: center;
+        height: 54px;
+        min-width: 115px;
+        background: #e5e5e5;
+        border-right: 1px solid #c2c2c2;
+        padding: 0 60px;
+    }
+    .orderDetail .orderItem table th:last-child {
+        border-right: 1px solid #e5e5e5;
+    }
+    .orderDetail .orderItem table td {
+        border-right: 1px solid #c2c2c2;
+        color: #ababab;
+    }
+    .orderDetail .orderItem table td:last-child {
+        border-right: none;
+        color: #eea236;
+    }
+    .orderDetail .orderItem table td > div {
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    } 
+    .orderDetail .orderItem table td > div.img-box {
+        padding: 35px 38px 26px 33px;
+    }
+    .orderDetail .orderItem table td > div.text-box {
+        padding: 60px 30px 0 0;
+    }
+    .orderDetail .orderItem table td > div.text-box p {
+        line-height: 26px;
+    }
+
+</style>
+<!--1、头部!-->
+<div class="header">
+    <div class="wrap">
+        <div class="header-left">
+            <p><span aria-hidden="true"></span>世界那么大, 欢迎您 ！</p>
+        </div>
+        <div class="header-right">
+            <ul>
+                <li class=""><a href="#">软件下载</a></li>
+                <li><a href="#">打开客户端</a></li>
+                <li><a href="#">安全退出</a></li>
+                <li class="cart"><a href="#">购物车</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--1、导航部分!-->
+<div class="nav-box">
+    <div class="wrap">
+        <div class="imgnav">
+            <img src="img/index_03.png">
+        </div>
+        <!--nav-->
+        <ul class="nav-right">
+            <li>
+                <a href="index.html">首页</a>
+            </li>
+            <li>
+                <a href="productShow.html">产品展示</a>
+            </li>
+            <li>
+                <a href="popularActivities.html">人气活动</a>
+            </li>
+            <li>
+                <a href="orderList.html">订单查询</a>
+            </li>
+            <li>
+                <a>财务管理</a>
+                <ul class="item-list">
+                    <li><a href="information.html">账户信息</a></li>
+                    <li><a href="moneyPro.html">充值列表</a></li>
+                    <li><a href="accountList.html">对账单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>个人中心</a>
+                <ul class="item-list">
+                    <li><a href="company.html" >公司信息</a></li>
+                    <li><a href="Personal.html">个人信息</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--内容-->
+<div class="wrap content orderDetail">
+    <div class="wuliu">
+        <h3>物流信息</h3>
+        <p>物流公司：<span>韵达 &nbsp;&nbsp;&nbsp; 韵达官网</span></p>
+        <p>物流运单：<span>567449846144</span></p>
+        <div class="list">物流跟踪：
+           <span>2017-04-18 12:34:48 您的订单信息审核通过</span><br>
+           <span>2017-04-18 12:34:48 您的订单信息审核通过</span><br>
+        </div>
+        <div class="more">
+            <img src="./img/more-down.svg" alt="">
+        </div>
+    </div>
+
+    <div class="orderItem">
+        <h3>订单信息</h3>
+        <p>收货地址：<span>咕咕咕，15036478765，上海市 &nbsp;宝山区 &nbsp;逸仙路6286号</span></p>
+        <p>运送方式：<span>快递</span></p>
+        <p>
+            订单编号：<span>4564564152315652151</span>
+            创建时间：<span>2017-04-7</span>
+            发货时间：<span>2017-1-2 11:23:34</span>
+            付款时间：<span>2017-1-2 11:23:34</span>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>单价(元)</th>
+                    <th>数量</th>
+                    <th>客户名</th>
+                    <th>运费</th>
+                    <th>总额(元)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="img-box">
+                            <img src="./img/orderGoods-01.png" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p>哑粉纸横版台历_8寸26页单面</p>
+                            <p>形状: 横</p>
+                            <p>印刷: 单面</p>
+                            <p>纸张类型: 哑粉纸</p>
+                            <p>底座颜色: 白色</p>
+                        </div>
+                    </td>
+                    <td>19.9</td>
+                    <td>1</td>
+                    <td>张三</td>
+                    <td>10</td>
+                    <td>19.9</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--底部-->
+<footer>
+    <div class="footer">
+        <div class="wrap">
+            <div class="footer-left">
+                <p>Copyright 2014杭州市正卓电子商务有限公司 版权所有<br>地址：中国浙江省杭州市萧山区</p>
+            </div>
+            <div class="footer-right">
+                <div class="code-box">
+                    <img src="img/index_29.png">
+                </div>
+                <div class="text-box">
+                    <p>联系方式：</p>
+                    <p>电话：400-711-6999</p>
+                    <p>邮箱：vienmu@126.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<script>
+    $(function () {
+        var list = $('.list')
+        $('.more img').on('click', function(e) {
+            if($(this).attr('src').indexOf('down')>-1) {
+                list.html(
+                    list.html() + `
+                    <span>2017-04-18 12:34:48 您的订单信息审核通过</span><br>
+                    <span>2017-04-18 12:34:48 您的订单信息审核通过</span><br>
+                    <span>2017-04-18 12:34:48 您的订单信息审核通过</span>
+                    `
+                )
+                $(this).attr('src', './img/more-up.svg')
+            } else {
+                $(this).attr('src', './img/more-down.svg')
+                list.html(`物流跟踪：
+                   <span>2017-04-18 12:34:48 您的订单信息审核通过</span><br>
+                   <span>2017-04-18 12:34:48 您的订单信息审核通过</span><br>
+                    `)
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
