@@ -15,6 +15,112 @@
 </head>
 <body>
 <style>
+.user {position: relative; text-align: center;}
+.user > div {display: inline-block; margin: 12px 0 30px;}
+.user > div > ul {display: inline-block; vertical-align: top}
+.user .user-left {
+    height: 738px;
+    background: #fafdfc;
+    margin-right: 15px;
+}
+.user .user-left li a {
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    padding: 31px 34px 31px 50px;
+    text-align: center;
+    background: url(./img/info.png) no-repeat 50px center;
+}
+.user .user-left li:nth-child(3) a{background-image: url(./img/notic.png);}
+.user .user-left li:nth-child(4) a{background-image: url(./img/gonggao.png);}
+.user .user-left li:nth-child(5) a{background-image: url(./img/fahuo.png);}
+.user .user-left li:hover a, 
+.user .user-left li.on a{
+    color: #12eac6;
+    background-image: url(./img/info-on.png);
+}
+.user .user-left li:nth-child(3):hover a, 
+.user .user-left li.on:nth-child(3) a {
+    background-image: url(./img/notic-on.png);
+}
+.user .user-left li:nth-child(4):hover a , 
+.user .user-left li.on:nth-child(4) a {
+    background-image: url(./img/gonggao-on.png);
+}
+.user .user-left li:nth-child(5):hover a, 
+.user .user-left li.on:nth-child(5) a {
+    background-image: url(./img/fahuo-on.png);
+}
+.user .user-left li.avatar-box a{
+    padding-left: 34px;
+    padding-bottom: 0px;
+}
+.user .user-left li.avatar-box p {
+    font-size: 16px;
+    text-align: center;
+    color: #595656;
+    margin-top: 20px;
+}
+.user .user-left li.avatar-box img {
+    width: 190px;
+}
+.user .right-box {
+    display: inline-block;
+    width: 916px;
+    height: 738px;
+    vertical-align: top;
+    background: #fafdfc;
+    position: relative;
+}
+.user .right-list {
+    width: 916px;
+    height: 738px;
+    position: absolute;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.user .right-list table {
+    border: 1px solid #e5e5e5;
+}
+.user .right-list table th, .user .right-list table td {
+    width: 130px;
+    height: 46px;
+    text-align: center;
+    white-space: pre-wrap;
+    padding: 10px;
+}
+.user .right-list table th {
+    background: #e5e5e5;
+}
+.user .user-right {
+    width: 916px;
+    height: 738px;
+    background: #fafdfc;
+    padding: 137px 370px 144px 314px;
+}
+.user .user-right li {
+    width: 236px;
+    margin-bottom: 23px;
+    text-align: right;
+    color: #595656;
+}
+.user .user-right li input {
+    width: 112px;
+    height: 30px;
+    margin-left: 15px;
+}
+.user .user-right li .btn {
+    width: 130px;
+    height: 35px;
+    background: #edb282;
+    border: 1px solid #edb282;
+}
+.user .user-right li .btn:hover {color: #fff;}
+.user .user-right li:nth-child(8) .btn {
+    background: #fff;
+    color: #595656;
+}
 </style>
 <!--1、头部!-->
 <div class="header">
@@ -72,14 +178,137 @@
 </div>
 <!--内容-->
 <div class="wrap content user">
-    <ul class="left">
-        <li><a href="#">
-            <img src="" alt=""></a>
-            <p>账户号: <span>65456844665</span></p>
-        </li>
-        <li><a href="#"></a></li>
-    </ul>
-    <ul class="right"></ul>
+    <div>
+        <ul class="user-left">
+            <li class="avatar-box"><a href="#">
+                <img src="./img/avatar.png" alt=""></a>
+                <p>账户号: <span>65456844665</span></p>
+            </li>
+            <li><a href="javascript:;">公司信息</a></li>
+            <li class="on"><a href="javascript:;">消费通知</a></li>
+            <li><a href="javascript:;">系统公告</a></li>
+            <li><a href="javascript:;">发货通知</a></li>
+        </ul>
+        <div class="right-box">
+            <div class="right-list list1">
+                <ul class="user-right">
+                    <li><span>&emsp;&emsp;公司名称：<input type="text" name="" id=""> </span></li>
+                    <li><span>&emsp;&emsp;公司地址：<input type="text" name="" id=""> </span></li>
+                    <li><span>公司收货地址：<input type="text" name="" id=""> </span></li>
+                    <li><span>&emsp;&emsp;&emsp;联系人：<input type="text" name="" id=""> </span></li>
+                    <li><span>&emsp;&emsp;&emsp;&emsp;电话：<input type="text" name="" id=""> </span></li>
+                    <li><span>&emsp;财务联系人：<input type="text" name="" id=""> </span></li>
+                    <li><span>&emsp;&emsp;&emsp;&emsp;电话：<input type="text" name="" id=""> </span></li>
+                    <li><div class="btn">修改</div></li>
+                    <li><div class="btn">确定</div></li>
+                </ul>
+            </div>
+            <div class="right-list list2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>订单号码</th>
+                            <th>订购产品</th>
+                            <th>数量</th>
+                            <th>单价(元)</th>
+                            <th>总价(元)</th>
+                            <th>下单时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="right-list list3">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>公告信息</th>
+                            <th>出处</th>
+                            <th>发布时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>咕咕咕</td>
+                            <td>张三</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="right-list list4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品名称</th>
+                            <th>客户名</th>
+                            <th>数量</th>
+                            <th>单价</th>
+                            <th>总价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>咕咕咕</td>
+                            <td>张三</td>
+                            <td>1</td>
+                            <td><span class="red">19元</span></td>
+                            <td><span class="red">100元</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 <!--底部-->
 <footer>
@@ -108,7 +337,26 @@
 
 <script>
     $(function () {
-        
+        var rightDiv = $('.right-list')
+        var li = $('.user .user-left li')
+        for(var i = 0; i< rightDiv.length; i++) {
+            $(rightDiv[i]).hide()
+        }
+        for(var i = 0; i< li.length; i++) {
+            if(li[i].className.indexOf('on')>-1) {
+                $(rightDiv[i-1]).show()
+            }
+        }
+        $('.user .user-left li').on('click', function(e) {
+            var li = $(e.target.closest('li'))
+            var idx = li.index()
+            li.siblings().removeClass('on')
+            li.addClass('on')
+            for(var i = 0; i< rightDiv.length; i++) {
+                $(rightDiv[i]).hide()
+            }
+            $(rightDiv[idx-1]).show()
+        })
     })
 </script>
 </body>

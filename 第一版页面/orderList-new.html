@@ -23,7 +23,6 @@
     /* 搜索框 */
     .search-box {
         margin: 0 auto; 
-        // display: inline-block;
         font-size: 18px;
         font-weight: bold;
         height: 130px;
@@ -63,7 +62,7 @@
         float: right;
         height: 35px;
         width: 25px;
-        background: #bcbcbc; 
+        background: #dcdcdc; 
         position: relative;   
     }
     .search-box .btn-group > button .caret-box .caret {
@@ -303,7 +302,12 @@
 
 <script>
     $(function () {
-        
+        // select 框
+        $('.btn-group').on('click', 'a', function(e) {
+            $(e.delegateTarget.children[0]).html($(e.target).text() + '<span class="caret-box"><i class="caret"></i></span>')
+            // 选择后的值
+            console.log($(e.target).text())
+        })
 
     })
 

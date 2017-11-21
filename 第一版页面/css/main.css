@@ -135,3 +135,44 @@ div.hidden-box li{
     margin: 0 auto;
     height: 100%;
 }
+
+/* 下拉框样式 */
+.btn-group {
+    display: inline-block;
+}
+.btn-group > button {
+    border: 1px solid #dcdcdc;
+    width: 132px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 0px;
+    padding: 0px;
+    text-align: left;
+    padding-left: 10px;
+    font-weight: bold;
+}
+.btn-group > button .caret-box {
+    display: inline-block;
+    float: right;
+    height: 100%;
+    width: 25px;
+    background: #dcdcdc; 
+    position: relative;   
+}
+.btn-group > button .caret-box .caret {
+    position: absolute;
+    top: 16px;
+    left: 8px;
+    line-height: 100%;
+    color: #7b7b7b;
+    transform: scaleX(1.5);
+    transform: scaleY(2.5);
+}
+.dropdown-menu {
+    min-width: 132px;
+    border-radius: 0px;
+}
+
+span.red {
+    color: #f75f0c;
+}

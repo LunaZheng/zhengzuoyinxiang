@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下单页面</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/pageGroup.css"/>
+    <link rel="stylesheet" type="text/css" href="css/moneyPro.css"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<style>
+.toOrder > div {
+    font-size: 18px;
+    position: relative;
+}
+.toOrder > div > div {
+    margin-bottom: 20px;
+}
+.toOrder > div h3 {
+    background: #eaf6f3;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 8px;
+    margin-bottom: 30px;
+}
+.toOrder .btn-group > button, .toOrder > div input {
+    height: 40px;
+    width: 280px;
+    vertical-align: middle;
+    margin-left: 5px;
+    border: 1px solid #dcdcdc;
+    padding-left: 10px;
+}
+.toOrder .country > button.btn-default {width: 146px; margin-right: 5px; text-align: center;}
+.toOrder .country .dropdown-menu > li > a {width: 146px;}
+.toOrder .province > button.btn-default {width: 450px; color: #b2b2b2;}
+.toOrder .province .dropdown-menu > li > a {width: 450px;}
+.btn-group > button {font-weight: normal; font-size: 18px;}
+.toOrder textarea.form-control {
+    border-radius: 0px;
+    display: inline-block;
+    width: 607px;
+    overflow-x: hidden;
+    vertical-align: top;
+    margin-left: 5px;
+    font-size: 18px;
+}
+.toOrder .consigneeInfo > div > span.til {
+    display: inline-block;
+    width: 100px; 
+    text-align: right;
+    margin-right: 12px;
+}
+.toOrder .tel-prev > button, .toOrder .tel-prev .dropdown-menu > li > a {
+    width: 166px;
+}
+.toOrder .consigneeInfo > div:last-child input {
+    width: 134px;
+}
+.toOrder .consigneeInfo .addAddress {
+    width: 156px;
+    height: 53px;
+    line-height: 53px;
+    font-size: 18px;
+    font-weight: normal;
+    background: #49cbcd;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 68px;
+    right: 0;
+    cursor: pointer;
+}
+.toOrder .consigneeInfo .addAddress:hover {
+    background: #38babc;
+}
+.toOrder .buyList table {
+    border: 1px solid #e5e5e5;
+    margin: 50px 0 55px;
+}
+.toOrder .buyList table th {
+    height: 46px;
+    width: 366px;
+    text-align: center;
+    background: #e5e5e5;
+    font-weight: normal;
+}
+.toOrder .buyList table td {
+    height: 90px;
+    text-align: center;
+    white-space: pre-wrap;
+    padding: 10px;
+}
+.toOrder .buyList .info-box p {
+    vertical-align: top;
+    color: #333;
+    position: absolute;
+}
+.toOrder .buyList .info-box ul.info {
+    text-align: right;
+}
+.toOrder .buyList .info-box ul.info li span.red {
+    margin-left: 36px;
+}
+.toOrder .buyList .info-box ul.info li {
+    margin-bottom: 20px;
+}
+.toOrder .buyList .toOrder-btn-box {
+    height: 84px;
+    background: #e5e5e5;
+    text-align: right;
+    margin: 36px 0 76px;
+}
+.toOrder .buyList .toOrder-btn-box > div.toOrder-btn {
+    display: inline-block;
+    height: 84px;
+    line-height: 84px;
+    width: 170px;
+    text-align: center;
+    background: #49cbcd;
+    color: #fff;
+    font-size: 24px;
+    margin-left: 42px;
+    cursor: pointer;
+}
+.toOrder .buyList .toOrder-btn-box > div.toOrder-btn:hover {
+    background: #38babc;
+}
+</style>
+<!--1、头部!-->
+<div class="header">
+    <div class="wrap">
+        <div class="header-left">
+            <p><span aria-hidden="true"></span>世界那么大, 欢迎您 ！</p>
+        </div>
+        <div class="header-right">
+            <ul>
+                <li class=""><a href="#">软件下载</a></li>
+                <li><a href="#">打开客户端</a></li>
+                <li><a href="#">安全退出</a></li>
+                <li class="cart"><a href="#">购物车</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--1、导航部分!-->
+<div class="nav-box">
+    <div class="wrap">
+        <div class="imgnav">
+            <img src="img/index_03.png">
+        </div>
+        <!--nav-->
+        <ul class="nav-right">
+            <li>
+                <a href="index.html">首页</a>
+            </li>
+            <li>
+                <a href="productShow.html">产品展示</a>
+            </li>
+            <li>
+                <a href="popularActivities.html">人气活动</a>
+            </li>
+            <li>
+                <a href="orderList.html">订单查询</a>
+            </li>
+            <li>
+                <a>财务管理</a>
+                <ul class="item-list">
+                    <li><a href="information.html">账户信息</a></li>
+                    <li><a href="moneyPro.html">充值列表</a></li>
+                    <li><a href="accountList.html">对账单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>个人中心</a>
+                <ul class="item-list">
+                    <li><a href="company.html" >公司信息</a></li>
+                    <li><a href="Personal.html">个人信息</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--内容-->
+<div class="wrap content toOrder">
+    <div class="consigneeInfo">
+        <h3>收货人信息</h3>
+        <div>
+            <span class="til">所在地区</span>
+            <div class="btn-group country">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆<span class="caret-box"><i class="caret"></i></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:;">中国大陆111</a></li>
+                <li><a href="javascript:;">中国大陆222</a></li>
+                <li><a href="javascript:;">中国大陆333</a></li>
+                <li><a href="javascript:;">中国大陆444</a></li>
+              </ul>
+            </div>
+            <div class="btn-group province">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">请选择省市区 <span class="caret-box"><i class="caret"></i></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:;">北京</a></li>
+                <li><a href="javascript:;">上海</a></li>
+                <li><a href="javascript:;">天津</a></li>
+              </ul>
+            </div>
+        </div>
+        <div><span class="til">详细地址</span><textarea name="address" class="form-control" rows="3" placeholder="建议填写详细地址,  街道名称,  门牌号等信息"></textarea> </div>
+        <div><span class="til">邮编地址</span><input type="text" placeholder="如不清楚填写000000"></div>
+        <div><span class="til">收货人姓名</span><input type="text"></div>
+        <div><span class="til">手机号码</span>
+            <div class="btn-group tel-prev">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆+86 <span class="caret-box"><i class="caret"></i></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:;">中国大陆+86</a></li>
+                <li><a href="javascript:;">中国大陆+93</a></li>
+                <li><a href="javascript:;">中国大陆+00</a></li>
+                <li><a href="javascript:;">中国大陆+11</a></li>
+              </ul>
+            </div>
+            <input type="text">
+        </div>
+        <div><span class="til">电话号码</span>
+            <div class="btn-group tel-prev">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆+86 <span class="caret-box"><i class="caret"></i></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:;">中国大陆+86</a></li>
+                <li><a href="javascript:;">中国大陆+93</a></li>
+                <li><a href="javascript:;">中国大陆+00</a></li>
+                <li><a href="javascript:;">中国大陆+11</a></li>
+              </ul>
+            </div>
+            <input type="text" placeholder="区号">
+            <input type="text" placeholder="电话号码">
+            <input type="text" placeholder="分机">
+        </div>
+        <div class="addAddress">新增收货地址</div>
+    </div>
+    <div class="buyList">
+        <h3>购买清单</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>产品名称</th>
+                    <th>客户名</th>
+                    <th>数量</th>
+                    <th>单价</th>
+                    <th>总价</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>咕咕咕</td>
+                    <td>张三</td>
+                    <td>1</td>
+                    <td><span class="red">19元</span></td>
+                    <td><span class="red">100元</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="info-box">
+            <p>使用优惠券：&emsp;节省<span class="red">20</span>元</p>
+            <ul class="info">
+                <li>商品总金额<span class="red">100</span></li>
+                <li>运费<span class="red">100</span></li>
+                <li>优惠金额<span class="red">100</span></li>
+            </ul>
+        </div>
+        <div class="toOrder-btn-box">
+            <span>应付金额&emsp;</span><span class="red">100元</span>
+            <div class="toOrder-btn">下单</div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<footer>
+    <div class="footer">
+        <div class="wrap">
+            <div class="footer-left">
+                <p>Copyright 2014杭州市正卓电子商务有限公司 版权所有<br>地址：中国浙江省杭州市萧山区</p>
+            </div>
+            <div class="footer-right">
+                <div class="code-box">
+                    <img src="img/index_29.png">
+                </div>
+                <div class="text-box">
+                    <p>联系方式：</p>
+                    <p>电话：400-711-6999</p>
+                    <p>邮箱：vienmu@126.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<script>
+    $(function () {
+        // select 框
+        $('.btn-group').on('click', 'a', function(e) {
+            $(e.delegateTarget.children[0]).html($(e.target).text() + '<span class="caret-box"><i class="caret"></i></span>')
+            // 选择后的值
+            console.log($(e.target).text())
+        })
+    })
+</script>
+</body>
+</html>
