@@ -79,12 +79,15 @@
     }
 
     /* 列表 */
-    .list-box {
+    .orderList-table {
         border: 1px solid #49cbcd;
         margin: 0 auto;
         margin-bottom: 150px;
     }
-    .list-box th,  .list-box td{
+    .orderList-table tr {
+        cursor: pointer;
+    }
+    .orderList-table th,  .orderList-table td{
         height: 80px;
         text-align: center;
         word-wrap: break-word;
@@ -92,39 +95,19 @@
         width: 170px;
         padding: 10px;
     }
-    .list-box thead {
+    .orderList-table thead {
         background: #49cbcd;
         color: #fff;
     }
-    .list-box tbody tr:nth-child(2n-1) {
+    .orderList-table tbody tr:nth-child(2n-1) {
         background: #eff8f7;
     }
-    .list-box tbody tr td:nth-child(2) {
+    .orderList-table tbody tr td:nth-child(2) {
+        text-decoration: none;
         color: #E36C0D;
     }
 
-    /* 分页 */
-    ul.pagination {
-        display: inline-block;
-        margin-bottom: 46px;
-    }
-    .pagination > li > a, .pagination > li > span{
-        margin-right: 12px;
-        padding: 9px 25px;
-        color: #333;
-    }
-    .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-        background-color: #49cbcd;
-        border-color: #49cbcd;
-    }
-    .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
-        border-radius: 0px;
-    }
-    .pagination > li > a.morePage, .pagination > li > span {
-        background: #fff;
-        border: none;
-        padding: 9px 8px;
-    }
+    
 </style>
 <!--1、头部!-->
 <div class="header">
@@ -137,7 +120,7 @@
                 <li class=""><a href="#">软件下载</a></li>
                 <li><a href="#">打开客户端</a></li>
                 <li><a href="#">安全退出</a></li>
-                <li class="cart"><a href="#">购物车</a></li>
+                <li class="cart"><a href="cart.html">购物车</a></li>
             </ul>
         </div>
     </div>
@@ -174,7 +157,7 @@
                 <a>个人中心</a>
                 <ul class="item-list">
                     <li><a href="company.html" >公司信息</a></li>
-                    <li><a href="Personal.html">个人信息</a></li>
+                    <li><a href="user.html">个人信息</a></li>
                 </ul>
             </li>
         </ul>
@@ -184,7 +167,7 @@
 <div class="wrap content orderList">
     <!-- 搜索框 -->
     <div class="search-box">
-        <span>充值时间：</span><input type="time">
+        <span>充值时间：</span><input type="date">
         <span>客户名：</span><input type="text">
         <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">订单状态 <span class="caret-box"><i class="caret"></i></span></button>
@@ -199,7 +182,7 @@
     </div>
 
     <!-- 列表 -->
-    <table class="list-box" id="tb">
+    <table class="orderList-table" id="tb">
         <thead>
             <tr class="tab">
                 <th>序列号</th>
@@ -222,7 +205,7 @@
                 <td>2017-02-13</td>
             </tr>
             <tr>
-                <td>1</td>
+                <td>2</td>
                 <td>150014</td>
                 <td>相册</td>
                 <td>1</td>
@@ -231,7 +214,7 @@
                 <td>2017-02-13</td>
             </tr>
             <tr>
-                <td>1</td>
+                <td>3</td>
                 <td>150014</td>
                 <td>相册</td>
                 <td>1</td>
@@ -240,7 +223,7 @@
                 <td>2017-02-13</td>
             </tr>
             <tr>
-                <td>1</td>
+                <td>4</td>
                 <td>150014</td>
                 <td>相册123365231652165213</td>
                 <td>1</td>
@@ -249,7 +232,7 @@
                 <td>2017-02-13</td>
             </tr>
             <tr>
-                <td>1</td>
+                <td>5</td>
                 <td>150014</td>
                 <td>相册</td>
                 <td>1</td>
@@ -262,17 +245,17 @@
 
     <!-- 分页 -->
     <ul class="pagination">
-        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
-        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#" class="morePage">...</a></li>
-        <li><a href="#">24</a></li>
-        <li><a href="#" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+        <li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+        <li class="active"><a href="javascript:;">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="javascript:;">2</a></li>
+        <li><a href="javascript:;">3</a></li>
+        <li><a href="javascript:;">4</a></li>
+        <li><a href="javascript:;">5</a></li>
+        <li><a href="javascript:;">6</a></li>
+        <li><a href="javascript:;">7</a></li>
+        <li><a href="javascript:;" class="morePage">...</a></li>
+        <li><a href="javascript:;">24</a></li>
+        <li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
     </ul>
 </div>
 <!--底部-->
@@ -299,15 +282,17 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/main.js"></script>
 
 <script>
     $(function () {
-        // select 框
-        $('.btn-group').on('click', 'a', function(e) {
-            $(e.delegateTarget.children[0]).html($(e.target).text() + '<span class="caret-box"><i class="caret"></i></span>')
-            // 选择后的值
-            console.log($(e.target).text())
-        })
+       $('.orderList-table').on('click', function(e) {
+            var tr = e.target.closest('tr')
+            var idx = tr.children[0].innerText
+
+            // 将点击的序列号传递到订单详情页(路由hash传参) 并跳转页面
+            location.href = 'orderDetail.html#'+idx
+       })
 
     })
 

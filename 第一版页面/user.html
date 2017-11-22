@@ -78,26 +78,52 @@
     position: absolute;
     display: flex; 
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
+    padding-top: 137px;
+}
+.user .right-list .pagination {
+    position: absolute;
+    bottom: 0px;
 }
 .user .right-list table {
     border: 1px solid #e5e5e5;
+    margin-top: -60px;
+}
+.user .right-list table caption {
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.user .right-list table tbody {
+    height: 500px;
+    overflow-y: scroll;
 }
 .user .right-list table th, .user .right-list table td {
-    width: 130px;
+    max-width: 150px;
     height: 46px;
+    max-height: 46px;
     text-align: center;
     white-space: pre-wrap;
-    padding: 10px;
+    padding: 10px 30px;
 }
 .user .right-list table th {
-    background: #e5e5e5;
+    background: #ddd;
+}
+.user .right-list table th.notic-text {
+    width: 600px;
+}
+.user .right-list table th.notic-text ~ th {
+    width: 300px;
+}
+.user .right-list table tr:nth-child(2n) {
+    background: #eee;
 }
 .user .user-right {
     width: 916px;
-    height: 738px;
+    height: 601px;
     background: #fafdfc;
-    padding: 137px 370px 144px 314px;
+    padding: 0px 370px 0px 314px;
 }
 .user .user-right li {
     width: 236px;
@@ -133,7 +159,7 @@
                 <li class=""><a href="#">软件下载</a></li>
                 <li><a href="#">打开客户端</a></li>
                 <li><a href="#">安全退出</a></li>
-                <li class="cart"><a href="#">购物车</a></li>
+                <li class="cart"><a href="cart.html">购物车</a></li>
             </ul>
         </div>
     </div>
@@ -184,8 +210,8 @@
                 <img src="./img/avatar.png" alt=""></a>
                 <p>账户号: <span>65456844665</span></p>
             </li>
-            <li><a href="javascript:;">公司信息</a></li>
-            <li class="on"><a href="javascript:;">消费通知</a></li>
+            <li class="on"><a href="javascript:;">公司信息</a></li>
+            <li><a href="javascript:;">消费通知</a></li>
             <li><a href="javascript:;">系统公告</a></li>
             <li><a href="javascript:;">发货通知</a></li>
         </ul>
@@ -205,6 +231,7 @@
             </div>
             <div class="right-list list2">
                 <table>
+                    <caption>消费通知</caption>
                     <thead>
                         <tr>
                             <th>订单号码</th>
@@ -212,16 +239,18 @@
                             <th>数量</th>
                             <th>单价(元)</th>
                             <th>总价(元)</th>
+                            <th>订单状态</th>
                             <th>下单时间</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>150014</td>
-                            <td>相册</td>
+                            <td>相册相册相册相册相册相册相册相册相册</td>
                             <td>1</td>
                             <td>19</td>
                             <td>19</td>
+                            <td>已发货</td>
                             <td>2017-02-13</td>
                         </tr>
                         <tr>
@@ -230,6 +259,7 @@
                             <td>1</td>
                             <td>19</td>
                             <td>19</td>
+                            <td>已发货</td>
                             <td>2017-02-13</td>
                         </tr>
                         <tr>
@@ -238,6 +268,7 @@
                             <td>1</td>
                             <td>19</td>
                             <td>19</td>
+                            <td>已发货</td>
                             <td>2017-02-13</td>
                         </tr>
                         <tr>
@@ -246,6 +277,7 @@
                             <td>1</td>
                             <td>19</td>
                             <td>19</td>
+                            <td>已发货</td>
                             <td>2017-02-13</td>
                         </tr>
                         <tr>
@@ -254,6 +286,7 @@
                             <td>1</td>
                             <td>19</td>
                             <td>19</td>
+                            <td>已发货</td>
                             <td>2017-02-13</td>
                         </tr>
                         <tr>
@@ -262,50 +295,163 @@
                             <td>1</td>
                             <td>19</td>
                             <td>19</td>
+                            <td>已发货</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>已发货</td>
                             <td>2017-02-13</td>
                         </tr>
                     </tbody>
                 </table>
+                <!-- 分页 -->
+                <ul class="pagination">
+                    <li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                    <li class="active"><a href="javascript:;">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="javascript:;">2</a></li>
+                    <li><a href="javascript:;">3</a></li>
+                    <li><a href="javascript:;">4</a></li>
+                    <li><a href="javascript:;" class="morePage">...</a></li>
+                    <li><a href="javascript:;">10</a></li>
+                    <li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+                </ul>
             </div>
             <div class="right-list list3">
                 <table>
-                    <thead>
+                    <caption>系统公告</caption>
+                    <thead class="gonggao">
                         <tr>
-                            <th>公告信息</th>
+                            <th class="notic-text">公告信息</th>
                             <th>出处</th>
                             <th>发布时间</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕</td>
+                            <td>张三</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>咕咕咕</td>
+                            <td>张三</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
                             <td>咕咕咕</td>
                             <td>张三</td>
                             <td>2017-02-13</td>
                         </tr>
                     </tbody>
                 </table>
+                <!-- 分页 -->
+                <ul class="pagination">
+                    <li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                    <li class="active"><a href="javascript:;">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="javascript:;">2</a></li>
+                    <li><a href="javascript:;">3</a></li>
+                    <li><a href="javascript:;">4</a></li>
+                    <li><a href="javascript:;" class="morePage">...</a></li>
+                    <li><a href="javascript:;">10</a></li>
+                    <li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+                </ul>
             </div>
             <div class="right-list list4">
                 <table>
+                    <caption>发货通知</caption>
                     <thead>
                         <tr>
-                            <th>产品名称</th>
-                            <th>客户名</th>
+                            <th>订单号码</th>
+                            <th>订购产品</th>
                             <th>数量</th>
-                            <th>单价</th>
-                            <th>总价</th>
+                            <th>单价(元)</th>
+                            <th>总价(元)</th>
+                            <th>发货时间</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>咕咕咕</td>
-                            <td>张三</td>
+                            <td>150014</td>
+                            <td>相册</td>
                             <td>1</td>
-                            <td><span class="red">19元</span></td>
-                            <td><span class="red">100元</span></td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
+                        </tr>
+                        <tr>
+                            <td>150014</td>
+                            <td>相册</td>
+                            <td>1</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>2017-02-13</td>
                         </tr>
                     </tbody>
                 </table>
+                <!-- 分页 -->
+                <ul class="pagination">
+                    <li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+                    <li class="active"><a href="javascript:;">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="javascript:;">2</a></li>
+                    <li><a href="javascript:;">3</a></li>
+                    <li><a href="javascript:;">4</a></li>
+                    <li><a href="javascript:;" class="morePage">...</a></li>
+                    <li><a href="javascript:;">10</a></li>
+                    <li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+                </ul>
             </div>
         </div>
     </div>

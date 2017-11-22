@@ -94,7 +94,7 @@
                 <li class=""><a href="#">软件下载</a></li>
                 <li><a href="#">打开客户端</a></li>
                 <li><a href="#">安全退出</a></li>
-                <li class="cart"><a href="#">购物车</a></li>
+                <li class="cart"><a href="cart.html">购物车</a></li>
             </ul>
         </div>
     </div>
@@ -131,7 +131,7 @@
                 <a>个人中心</a>
                 <ul class="item-list">
                     <li><a href="company.html" >公司信息</a></li>
-                    <li><a href="Personal.html">个人信息</a></li>
+                    <li><a href="user.html">个人信息</a></li>
                 </ul>
             </li>
         </ul>
@@ -243,6 +243,9 @@
                     `)
             }
         })
+
+        // 接收由订单查询页传来的参数-->订单序列号
+        console.log(location.hash.substring(1))
 
     })
 </script>

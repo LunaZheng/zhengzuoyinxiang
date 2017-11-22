@@ -182,7 +182,7 @@
                 <a>个人中心</a>
                 <ul class="item-list">
                     <li><a href="company.html" >公司信息</a></li>
-                    <li><a href="Personal.html">个人信息</a></li>
+                    <li><a href="user.html">个人信息</a></li>
                 </ul>
             </li>
         </ul>
@@ -303,15 +303,11 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/main.js"></script>
 
 <script>
     $(function () {
-        // select 框
-        $('.btn-group').on('click', 'a', function(e) {
-            $(e.delegateTarget.children[0]).html($(e.target).text() + '<span class="caret-box"><i class="caret"></i></span>')
-            // 选择后的值
-            console.log($(e.target).text())
-        })
+        
     })
 </script>
 </body>
