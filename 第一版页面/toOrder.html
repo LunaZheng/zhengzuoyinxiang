@@ -51,19 +51,19 @@
     margin-left: 5px;
     font-size: 18px;
 }
-.toOrder .consigneeInfo > div > span.til {
+.consigneeInfo > div > span.til {
     display: inline-block;
     width: 100px; 
     text-align: right;
     margin-right: 12px;
 }
-.toOrder .tel-prev > button, .toOrder .tel-prev .dropdown-menu > li > a {
+.tel-prev > button, .tel-prev .dropdown-menu > li > a {
     width: 166px;
 }
-.toOrder .consigneeInfo > div:last-child input {
+.consigneeInfo > div:last-child input {
     width: 134px;
 }
-.toOrder .consigneeInfo .addAddress {
+.consigneeInfo .addAddress {
     width: 156px;
     height: 53px;
     line-height: 53px;
@@ -78,7 +78,7 @@
     right: 0;
     cursor: pointer;
 }
-.toOrder .consigneeInfo .addAddress:hover {
+.consigneeInfo .addAddress:hover {
     background: #38babc;
 }
 .toOrder .buyList table {
@@ -132,6 +132,14 @@
 }
 .toOrder .buyList .toOrder-btn-box > div.toOrder-btn:hover {
     background: #38babc;
+}
+.addAddress-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
 }
 </style>
 <!--1、头部!-->
@@ -299,6 +307,63 @@
         </div>
     </div>
 </footer>
+<div class="addAddress-mask">
+    <div class="center-box">
+        <div class="consigneeInfo">
+            <h3>收货人信息</h3>
+            <div>
+                <span class="til">所在地区</span>
+                <div class="btn-group country">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆<span class="caret-box"><i class="caret"></i></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:;">中国大陆111</a></li>
+                    <li><a href="javascript:;">中国大陆222</a></li>
+                    <li><a href="javascript:;">中国大陆333</a></li>
+                    <li><a href="javascript:;">中国大陆444</a></li>
+                  </ul>
+                </div>
+                <div class="btn-group province">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">请选择省市区 <span class="caret-box"><i class="caret"></i></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:;">北京</a></li>
+                    <li><a href="javascript:;">上海</a></li>
+                    <li><a href="javascript:;">天津</a></li>
+                  </ul>
+                </div>
+            </div>
+            <div><span class="til">详细地址</span><textarea name="address" class="form-control" rows="3" placeholder="建议填写详细地址,  街道名称,  门牌号等信息"></textarea> </div>
+            <div><span class="til">邮编地址</span><input type="text" placeholder="如不清楚填写000000"></div>
+            <div><span class="til">收货人姓名</span><input type="text"></div>
+            <div><span class="til">手机号码</span>
+                <div class="btn-group tel-prev">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆+86 <span class="caret-box"><i class="caret"></i></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:;">中国大陆+86</a></li>
+                    <li><a href="javascript:;">中国大陆+93</a></li>
+                    <li><a href="javascript:;">中国大陆+00</a></li>
+                    <li><a href="javascript:;">中国大陆+11</a></li>
+                  </ul>
+                </div>
+                <input type="text">
+            </div>
+            <div><span class="til">电话号码</span>
+                <div class="btn-group tel-prev">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆+86 <span class="caret-box"><i class="caret"></i></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:;">中国大陆+86</a></li>
+                    <li><a href="javascript:;">中国大陆+93</a></li>
+                    <li><a href="javascript:;">中国大陆+00</a></li>
+                    <li><a href="javascript:;">中国大陆+11</a></li>
+                  </ul>
+                </div>
+                <input type="text" placeholder="区号">
+                <input type="text" placeholder="电话号码">
+                <input type="text" placeholder="分机">
+            </div>
+            <div class="addAddress">新增收货地址</div>
+        </div>
+    </div>
+</div>
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
