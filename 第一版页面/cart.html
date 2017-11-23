@@ -86,7 +86,7 @@ label.on input[type="checkbox"]:after {border: 1px solid rgb(58, 170, 146);}
 <!--内容-->
 <div class="wrap content cart-page">
     <div class="cart-search-box">
-        <img src="img/logo.png" alt="" class="logo">
+        <a href="index.html"><img src="img/logo.png" alt="" class="logo"></a>
         <div class="r">
             <span>时间</span>
             <!-- Internet Explorer 或 Firefox 不支持 <input type="date"> -->
@@ -122,7 +122,7 @@ label.on input[type="checkbox"]:after {border: 1px solid rgb(58, 170, 146);}
                     </label>
                     <img src="img/goods01.png" alt="">
                 </td>
-                <td class="text">安娜八件套安娜八件套安娜八件套八件套件套安娜八件套</td>
+                <td class="text">安娜八件套</td>
                 <td class="num-box">
                     <div class="btn-minus">-</div>
                     <input type="text" name="" id="" class="num" value="1">
@@ -282,9 +282,30 @@ label.on input[type="checkbox"]:after {border: 1px solid rgb(58, 170, 146);}
 
 <script>
     $(function () {
+        // 复选框
         $('.btn-box').on('click', 'label', function(e) {
             var label = $(e.target.closest('label'))
             label.toggleClass('on')
+        })
+
+        // 数量 + -
+        $('table').on('click', '.num-box', function(e) {
+            var minus = $(e.target.closest('.btn-minus'))
+            var add = $(e.target.closest('.btn-add'))
+            var input = $(e.currentTarget.children[1])
+            var val = input.attr('value')*1
+            if(e.target.className.indexOf('btn-minus')>-1) {
+                if(val<1) {
+                    input.attr('value', 0)
+                } else {
+                    val -= 1
+                    input.attr('value', val)
+                }
+            } else if(e.target.className.indexOf('btn-add')>-1) {
+                console.log('add')
+                val += 1
+                input.attr('value', val)
+            }
         })
     })
 

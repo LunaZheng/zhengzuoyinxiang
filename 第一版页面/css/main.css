@@ -199,3 +199,59 @@ ul.pagination {
     border: none;
     padding: 9px 8px;
 }
+
+/* 新版分页栏 */
+div.pagination {
+    display: inline-block;
+    margin-bottom: 46px;
+    user-select: none;
+}
+div.pagination ul {
+    display: inline-block; 
+}
+div.pagination > div,
+div.pagination ul li {
+    height: 40px;
+    line-height: 40px;
+    display: inline-block; 
+    cursor: pointer;
+    background-color: #fff;
+    border-color: #ddd;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    margin-right: 6px;
+}
+div.pagination > div {
+    width: 94px; 
+    cursor: pointer;
+}
+div.pagination > div.prev {
+    color: #aaa;
+    cursor: not-allowed;
+}
+div.pagination ul li {
+    width: 60px; 
+    height: 40px;
+}
+div.pagination > div:hover,
+div.pagination ul li:hover {
+    background: #eee;
+}
+div.pagination ul li.active {
+    background: #49cbcd;
+    color: #fff;
+}
+div.pagination ul li.morePageNext {
+    background: #fff;
+    border: none;
+    width: 30px;
+    padding: 9px 0;
+    line-height: 1;
+}
+
+/* 复选框*/
+label span {font-weight: normal; margin-left: 18px;}
+label input {position: relative; margin-top: -8px;}
+label input[type="checkbox"]:after {content: ''; position: absolute; top: -1px; left: -1px; display: inline-block; width: 20px; height: 20px; background: #fff; border: 1px solid #ddd; cursor: pointer;}
+label.on input[type="checkbox"]:before {content: ''; display: inline-block; position: absolute; top: 1px; left: 1px; width: 19px; height: 19px; z-index: 10; background-image: url('../img/selected.svg'); cursor: pointer;}
+label.on input[type="checkbox"]:after {border: 1px solid rgb(58, 170, 146);}

@@ -19,17 +19,17 @@
     font-size: 18px;
     position: relative;
 }
-.toOrder > div > div {
+div.consigneeInfo > div {
     margin-bottom: 20px;
 }
-.toOrder > div h3 {
+div.consigneeInfo h3 {
     background: #eaf6f3;
     height: 48px;
     line-height: 48px;
     padding-left: 8px;
     margin-bottom: 30px;
 }
-.toOrder .btn-group > button, .toOrder > div input {
+.consigneeInfo .btn-group > button, .consigneeInfo > div>input {
     height: 40px;
     width: 280px;
     vertical-align: middle;
@@ -37,12 +37,12 @@
     border: 1px solid #dcdcdc;
     padding-left: 10px;
 }
-.toOrder .country > button.btn-default {width: 146px; margin-right: 5px; text-align: center;}
-.toOrder .country .dropdown-menu > li > a {width: 146px;}
-.toOrder .province > button.btn-default {width: 450px; color: #b2b2b2;}
-.toOrder .province .dropdown-menu > li > a {width: 450px;}
+.consigneeInfo .country > button.btn-default {width: 146px; margin-right: 5px; text-align: center;}
+.consigneeInfo .country .dropdown-menu > li > a {width: 146px;}
+.consigneeInfo .province > button.btn-default {width: 450px; color: #b2b2b2;}
+.consigneeInfo .province .dropdown-menu > li > a {width: 450px;}
 .btn-group > button {font-weight: normal; font-size: 18px;}
-.toOrder textarea.form-control {
+.consigneeInfo textarea.form-control {
     border-radius: 0px;
     display: inline-block;
     width: 607px;
@@ -57,10 +57,10 @@
     text-align: right;
     margin-right: 12px;
 }
-.tel-prev > button, .tel-prev .dropdown-menu > li > a {
+.consigneeInfo .tel-prev > button, .consigneeInfo .tel-prev .dropdown-menu > li > a {
     width: 166px;
 }
-.consigneeInfo > div:last-child input {
+.consigneeInfo > div:nth-child(7) > input {
     width: 134px;
 }
 .consigneeInfo .addAddress {
@@ -135,11 +135,72 @@
 }
 .addAddress-mask {
     position: absolute;
+    width: 100%;
+    height: 100%;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     background: rgba(0,0,0,0.5);
+    display:flex;
+    align-items: center;/*垂直居中*/
+    justify-content: center;/*水平居中*/
+    display: none;
+}
+.addAddress-mask .center-box {
+    width: 44%;
+    height: 58%;
+    background: #fff;
+    font-size: 18px;
+    padding: 75px 30px;
+    min-width: 800px;
+    min-height: 700px;
+    position: relative;
+}
+.addAddress-mask .center-box .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #333;
+    width: 28px;
+    height: 28px;
+}
+.addAddress-mask .center-box .close:before {
+    content: '';
+    display: block;
+    border-top: 1px solid #000;
+    width: 28px;
+    height: 28px;
+    transform: rotate(45deg);
+}
+.addAddress-mask .center-box .close:after {
+    content: '';
+    display: block;
+    border-top: 1px solid #000;
+    width: 28px;
+    height: 28px;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 0px;
+    right: -20px;
+}
+.addAddress-mask .center-box .consigneeInfo > div:nth-child(8) {
+    margin: 40px 0px 60px 50px;
+}
+.addAddress-mask .center-box .consigneeInfo > div:nth-child(9) {
+    text-align: center;
+}
+.addAddress-mask .center-box .consigneeInfo > div:nth-child(9) .save-btn {
+    display: inline-block;
+    width: 196px; 
+    height: 52px;
+    line-height: 52px;
+    font-size: 20px;
+    background: #49cbcd;
+    text-align: center;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
 }
 </style>
 <!--1、头部!-->
@@ -153,7 +214,7 @@
                 <li class=""><a href="#">软件下载</a></li>
                 <li><a href="#">打开客户端</a></li>
                 <li><a href="#">安全退出</a></li>
-                <li class="cart"><a href="#">购物车</a></li>
+                <li class="cart"><a href="cart.html">购物车</a></li>
             </ul>
         </div>
     </div>
@@ -176,7 +237,7 @@
                 <a href="popularActivities.html">人气活动</a>
             </li>
             <li>
-                <a href="orderList.html">订单查询</a>
+                <a href="orderList-new.html">订单查询</a>
             </li>
             <li>
                 <a>财务管理</a>
@@ -310,7 +371,7 @@
 <div class="addAddress-mask">
     <div class="center-box">
         <div class="consigneeInfo">
-            <h3>收货人信息</h3>
+            <span class="close"></span>
             <div>
                 <span class="til">所在地区</span>
                 <div class="btn-group country">
@@ -331,10 +392,14 @@
                   </ul>
                 </div>
             </div>
-            <div><span class="til">详细地址</span><textarea name="address" class="form-control" rows="3" placeholder="建议填写详细地址,  街道名称,  门牌号等信息"></textarea> </div>
-            <div><span class="til">邮编地址</span><input type="text" placeholder="如不清楚填写000000"></div>
-            <div><span class="til">收货人姓名</span><input type="text"></div>
-            <div><span class="til">手机号码</span>
+            <div>
+                <span class="til">详细地址</span><textarea name="address" class="form-control" rows="3" placeholder="建议填写详细地址,  街道名称,  门牌号等信息"></textarea> </div>
+            <div>
+                <span class="til">邮编地址</span><input type="text" placeholder="如不清楚填写000000"></div>
+            <div>
+                <span class="til">收货人姓名</span><input type="text"></div>
+            <div>
+                <span class="til">手机号码</span>
                 <div class="btn-group tel-prev">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆+86 <span class="caret-box"><i class="caret"></i></span></button>
                   <ul class="dropdown-menu">
@@ -346,7 +411,8 @@
                 </div>
                 <input type="text">
             </div>
-            <div><span class="til">电话号码</span>
+            <div>
+                <span class="til">电话号码</span>
                 <div class="btn-group tel-prev">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">中国大陆+86 <span class="caret-box"><i class="caret"></i></span></button>
                   <ul class="dropdown-menu">
@@ -360,7 +426,15 @@
                 <input type="text" placeholder="电话号码">
                 <input type="text" placeholder="分机">
             </div>
-            <div class="addAddress">新增收货地址</div>
+            <div>
+                <label for="设为默认地址" class="checkbox">
+                  <input type="checkbox" name="" class="selectAll" id="设为默认地址">
+                  <span>设为默认地址</span>
+                </label>
+            </div>
+            <div>
+                <div class="save-btn">保存</div>
+            </div>
         </div>
     </div>
 </div>
@@ -372,7 +446,32 @@
 
 <script>
     $(function () {
-        
+        console.log(document.body.clientWidth)
+
+        // 复选框
+        $('label').on('click', function(e) {
+            var label = $(e.target.closest('label'))
+            label.toggleClass('on')
+        })
+
+        $('.addAddress-mask').hide()
+
+        // 弹出 新增收货地址 遮罩
+        $('.addAddress').on('click', function(e) {
+            $('.addAddress-mask').css({
+                'display': 'flex',
+                'width': 'document.body.clientWidth',
+                'height': 'document.body.clientHeight',
+                'top': $(document).scrollTop()
+            })
+            $('body').css('overflow', 'hidden')
+        })
+
+        // 隐藏 新增收货地址 遮罩
+        $('.addAddress-mask .close').on('click', function(e) {
+            $('.addAddress-mask').css('display', 'none')
+            $('body').css('overflow', 'scroll')
+        })
     })
 </script>
 </body>

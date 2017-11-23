@@ -52,21 +52,142 @@ $(document).ready(function(){
     })
 
     // 分页栏
-    /*$('.pagination').on('click', 'a', function(e) {
+    /*$('.pagination').on('click', 'li', function(e) {
         var li = $(e.target.closest('li'))
         var lis = li.siblings()
-        if(e.target.className.indexOf('morePage') <= -1 && 
-           e.target.className.indexOf('prev') <= -1  && 
-           e.target.className.indexOf('next') <= -1  ) {
+        console.log(e.target.className)
+        console.log(li.attr('class').indexOf('prev') <= -1)
+        var firstIdx = (lis[1].innerText)*1
+        var lastIdx7 = (lis[lis.length-3].innerText)*1
+        var lastIdx = (lis[lis.length-2].innerText)*1
+        var curIdx = 1
+        if(e.target.className.indexOf('morePageNext') <= -1 && 
+           li.attr('class').indexOf('prev') <= -1  && 
+           li.attr('class').indexOf('next') <= -1  ) {
             lis.removeClass('active')
             li.addClass('active')
-        } else if(e.target.className.indexOf('morePage') > -1) {
-            for(var i = 1, len = lis.length-2; i < len; i++) {
-                var lastPageNum = $(lis[len-3].children[0]).html()*1
-                $(lis[i].children[0]).html(lastPageNum+i*1)
-            } 
+            curIdx = li.text()*1
+            if(curIdx > 1) {
+                $(lis[0]).removeClass('disabled')
+            }
+        } else if(li.attr('class').indexOf('prev') > -1) {
+            lis.removeClass('active')
+            $(lis[curIdx-1]).addClass('active')
+        }  else if(li.attr('class').indexOf('next') > -1) {
+            console.log(curIdx+1)
+            lis.removeClass('active')
+            $(lis[curIdx+1]).addClass('active')
+        } else if(e.target.className.indexOf('morePageNext') > -1) {
+            var html = []
+            var 余数 = lastIdx % lastIdx7
+            if(lastIdx7 + 余数 >= lastIdx) {
+                for(var i = firstIdx; i < 余数; i++) {
+                    html.push('<li><a href="javascript:;">' + (lastIdx7 + i - firstIdx + 1) + '</a></li>')
+                }
+                html = html.join(' ')
+                $('.pagination').html('<li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>' +
+                    html+
+                    '<li><a href="javascript:;">24</a></li>' +
+                    '<li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>')
+            } else {
+                for(var i = firstIdx; i < lastIdx7 + 1; i++) {
+                    html.push('<li><a href="javascript:;">' + (lastIdx7 + i - firstIdx + 1) + '</a></li>')
+                }
+                html = html.join(' ')
+                $('.pagination').html('<li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>' +
+                html+
+                '<li><a href="javascript:;" class="morePageNext">...</a></li>' +
+                '<li><a href="javascript:;">24</a></li>' +
+                '<li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>')
+            }
         }
     })*/
+
+    function getActiveNum() {
+        var num
+        ;[].slice.call($('.pagination ul li')).forEach(function(i) {
+            if(i.className === 'active') {
+                num = i.innerText*1
+            }
+        })
+        return num
+    }
+    var activeNum = getActiveNum()
+
+    function setActive(textNum) {
+        ;[].slice.call($('.pagination ul li')).forEach(function(i) {
+            $(i).removeClass('active')
+            if($(i).text()*1 === textNum) {
+               $(i).addClass('active')
+               activeNum = getActiveNum()
+            } else if($(i).text()*1 > textNum) {
+                $('.pagination ul li').eq(4).addClass('active')
+            } else if($(i).text()*1 < textNum) {
+                $('.pagination ul li').eq($('.pagination ul li').length-1).addClass('active')
+            }
+        })
+    }
+
+    function addHtml(obj, firstNum, endNum, lastNum, lisCount) {
+        var html = []
+        for(var i = firstNum; i < endNum + 1; i++) {
+            if((endNum + i - firstNum - 3) < lastNum) {
+                html.push('<li>' + (endNum + i - firstNum - 3) + '</li>')
+            }
+        }
+        html.push('<li class="morePageNext">...</li>')
+        if(firstNum >= (lastNum - lisCount + 1)) {
+            html.pop()
+        }
+        html = html.join(' ')
+        obj.html(html+'<li>24</li>')
+    }
+
+
+    $('.pagination').on('click', function(e) {
+        var prev = $('.pagination .prev')
+        var next = $('.pagination .next')
+        var ul = $('.pagination ul')
+        var li = $(e.target.closest('li'))
+        var ulLis = $(ul.children())
+        var lis = li.siblings()
+        var firstNum = (ulLis[0].innerText)*1
+        var desc3 = (ulLis[ulLis.length-3].innerText)*1
+        var lastNum = (ulLis[ulLis.length-1].innerText)*1
+            // console.log(firstNum, desc3, lastNum)
+        var lisCount = ulLis.length
+
+        if(e.target.tagName === 'LI' && e.target.className != 'morePageNext') {
+            var curIdx = li.index()
+            var curNum = li.text()*1
+            ulLis.removeClass('active').eq(curIdx).addClass('active')
+            activeNum = getActiveNum()
+            if(curIdx > 0) {
+                prev.css({
+                    'color': '#333',
+                    'cursor': 'pointer',
+                })
+                prev.removeClass('disabled')
+            } else {
+                prev.css({
+                    'color': '#aaa',
+                    'cursor': 'not-allowed'
+                })
+                prev.addClass('disabled')
+            }
+
+            if(curNum === desc3) {
+                addHtml(ul, firstNum, desc3, lastNum, lisCount)
+            }
+
+            setActive(curNum)
+        } else if(e.target.className === 'morePageNext') {
+            addHtml(ul, firstNum, desc3, lastNum, lisCount)
+            setActive(activeNum)
+        }
+        
+    })
+
 
     /*$('.pagination').each(function(i) {
       var cons = tabCon.eq(i).children()
