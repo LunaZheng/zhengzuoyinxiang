@@ -90,8 +90,8 @@ label.on input[type="checkbox"]:after {border: 1px solid rgb(58, 170, 146);}
         <div class="r">
             <span>时间</span>
             <!-- Internet Explorer 或 Firefox 不支持 <input type="date"> -->
-            <input type="date" class="fromTime">--
-            <input type="date" class="toTime">
+            <input type="text" data-calendar class="fromTime">--
+            <input type="text" data-calendar class="toTime">
             <div class="input-box">
                 <span><input type="text" class="search"></span>
                 <div class="button" value="">搜索</div>
@@ -279,6 +279,7 @@ label.on input[type="checkbox"]:after {border: 1px solid rgb(58, 170, 146);}
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/calendar.js"></script>
 
 <script>
     $(function () {

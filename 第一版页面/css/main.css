@@ -241,7 +241,8 @@ div.pagination ul li.active {
     background: #49cbcd;
     color: #fff;
 }
-div.pagination ul li.morePageNext {
+div.pagination ul li.morePageNext, 
+div.pagination ul li.morePagePrev {
     background: #fff;
     border: none;
     width: 30px;

@@ -52,95 +52,143 @@ $(document).ready(function(){
     })
 
     // 分页栏
-    /*$('.pagination').on('click', 'li', function(e) {
-        var li = $(e.target.closest('li'))
-        var lis = li.siblings()
-        console.log(e.target.className)
-        console.log(li.attr('class').indexOf('prev') <= -1)
-        var firstIdx = (lis[1].innerText)*1
-        var lastIdx7 = (lis[lis.length-3].innerText)*1
-        var lastIdx = (lis[lis.length-2].innerText)*1
-        var curIdx = 1
-        if(e.target.className.indexOf('morePageNext') <= -1 && 
-           li.attr('class').indexOf('prev') <= -1  && 
-           li.attr('class').indexOf('next') <= -1  ) {
-            lis.removeClass('active')
-            li.addClass('active')
-            curIdx = li.text()*1
-            if(curIdx > 1) {
-                $(lis[0]).removeClass('disabled')
-            }
-        } else if(li.attr('class').indexOf('prev') > -1) {
-            lis.removeClass('active')
-            $(lis[curIdx-1]).addClass('active')
-        }  else if(li.attr('class').indexOf('next') > -1) {
-            console.log(curIdx+1)
-            lis.removeClass('active')
-            $(lis[curIdx+1]).addClass('active')
-        } else if(e.target.className.indexOf('morePageNext') > -1) {
-            var html = []
-            var 余数 = lastIdx % lastIdx7
-            if(lastIdx7 + 余数 >= lastIdx) {
-                for(var i = firstIdx; i < 余数; i++) {
-                    html.push('<li><a href="javascript:;">' + (lastIdx7 + i - firstIdx + 1) + '</a></li>')
-                }
-                html = html.join(' ')
-                $('.pagination').html('<li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>' +
-                    html+
-                    '<li><a href="javascript:;">24</a></li>' +
-                    '<li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>')
-            } else {
-                for(var i = firstIdx; i < lastIdx7 + 1; i++) {
-                    html.push('<li><a href="javascript:;">' + (lastIdx7 + i - firstIdx + 1) + '</a></li>')
-                }
-                html = html.join(' ')
-                $('.pagination').html('<li class="disabled prev"><a href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>' +
-                html+
-                '<li><a href="javascript:;" class="morePageNext">...</a></li>' +
-                '<li><a href="javascript:;">24</a></li>' +
-                '<li class="next"><a href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>')
-            }
-        }
-    })*/
-
     function getActiveNum() {
         var num
+        var ul = $('.pagination ul')
+        var ulLis = $(ul.children())
+        var lastNum = (ulLis[ulLis.length-1].innerText)*1
         ;[].slice.call($('.pagination ul li')).forEach(function(i) {
             if(i.className === 'active') {
                 num = i.innerText*1
             }
         })
+
+        if(num === 1) {
+            $('.pagination .prev').css({
+                'color': '#aaa',
+                'cursor': 'not-allowed'
+            })
+            $('.pagination .prev').addClass('disabled')
+            $('.pagination .next').css({
+                'color': '#333',
+                'cursor': 'pointer',
+            })
+            $('.pagination .next').removeClass('disabled')
+        } else if(num === lastNum) {
+            $('.pagination .next').css({
+                'color': '#aaa',
+                'cursor': 'not-allowed'
+            })
+            $('.pagination .next').addClass('disabled')
+            $('.pagination .prev').css({
+                'color': '#333',
+                'cursor': 'pointer',
+            })
+            $('.pagination .prev').removeClass('disabled')
+        } else {
+            $('.pagination .prev').css({
+                'color': '#333',
+                'cursor': 'pointer',
+            })
+            $('.pagination .prev').removeClass('disabled')
+            $('.pagination .next').css({
+                'color': '#333',
+                'cursor': 'pointer',
+            })
+            $('.pagination .next').removeClass('disabled')
+        }
         return num
     }
-    var activeNum = getActiveNum()
 
-    function setActive(textNum) {
+    function getActiveIdx() {
+        var num
+        ;[].slice.call($('.pagination ul li')).forEach(function(i) {
+            if(i.className === 'active') {
+                num = $(i).index()
+            }
+        })
+        return num
+    }
+
+    function getMorePageNextIdx() {
+        var num
+        ;[].slice.call($('.pagination ul li')).forEach(function(i) {
+            if(i.className === 'morePageNext') {
+                num = $(i).index()
+            }
+        })
+        return num
+    }
+    function getMorePagePrevIdx() {
+        var num
+        ;[].slice.call($('.pagination ul li')).forEach(function(i) {
+            if(i.className === 'morePagePrev') {
+                num = $(i).index()
+            }
+        })
+        return num
+    }
+
+    var activeNum = getActiveNum()
+    var morePageNextNum = getMorePageNextIdx()
+    var morePagePrevNum = getMorePagePrevIdx()
+
+    function setActive(curNum) {
+        var ul = $('.pagination ul')
+        var ulLis = $(ul.children())
+        var lastNum = (ulLis[ulLis.length-1].innerText)*1
+        var num = curNum || getActiveNum()
         ;[].slice.call($('.pagination ul li')).forEach(function(i) {
             $(i).removeClass('active')
-            if($(i).text()*1 === textNum) {
+            if($(i).text()*1 === num) {
                $(i).addClass('active')
                activeNum = getActiveNum()
-            } else if($(i).text()*1 > textNum) {
+            } /*else if($(i).text()*1 > textNum) {
                 $('.pagination ul li').eq(4).addClass('active')
             } else if($(i).text()*1 < textNum) {
                 $('.pagination ul li').eq($('.pagination ul li').length-1).addClass('active')
-            }
+            }*/
         })
     }
 
-    function addHtml(obj, firstNum, endNum, lastNum, lisCount) {
+    // function addHtml(obj, firstNum, endNum, lastNum, lisCount) {
+    function addHtml(obj, start, end, lastNum, lisCount) {
         var html = []
-        for(var i = firstNum; i < endNum + 1; i++) {
-            if((endNum + i - firstNum - 3) < lastNum) {
-                html.push('<li>' + (endNum + i - firstNum - 3) + '</li>')
+        activeNum = getActiveNum()
+        console.log(start, end, lastNum, lisCount)
+
+        if(start < 3 && end <= lisCount) { // 无左右[1 2 3 4 5 6 7 8]
+            console.log('无左右')
+            for(var i = 1; i <= end; i++) {
+                html.push('<li>' + i + '</li>')
             }
-        }
-        html.push('<li class="morePageNext">...</li>')
-        if(firstNum >= (lastNum - lisCount + 1)) {
-            html.pop()
+        } else if(start < 3 && ((end <= (lastNum - 2)) || (end > lisCount))) { // 无左[1 2 3 4 5 6 7- (... 24)]
+            console.log('无左')
+            for(var i = 1; i <= end-2; i++) {
+                html.push('<li>' + i + '</li>')
+            } 
+            html.push('<li class="morePageNext">...</li>')
+            html.push('<li>' + lastNum + '</li>')
+        } else if(start >= 3 && end > lastNum - 2) { // 无右[(1 ...) - 16 17 19 20 21 23 24]
+            console.log('无右')
+            html.push('<li>1</li>')
+            html.push('<li class="morePagePrev">...</li>')
+            for(var i = start+2; i <= end; i++) {
+                html.push('<li>' + i + '</li>')
+            } 
+        } else if(start >= 3 && end <= lastNum - 2) { //有左右[(1 ...) - 3 4 5 6 7 8 - (... 24)]
+            console.log('有左右')
+            html.push('<li>1</li>')
+            html.push('<li class="morePagePrev">...</li>')
+            for(var i = start/*+2*/; i <= end/*-2*/; i++) {
+                html.push('<li>' + i + '</li>')
+            }
+            html.push('<li class="morePageNext">...</li>')
+            html.push('<li>' + lastNum + '</li>')
         }
         html = html.join(' ')
-        obj.html(html+'<li>24</li>')
+        obj.html(html)
+        
     }
 
 
@@ -150,8 +198,17 @@ $(document).ready(function(){
         var ul = $('.pagination ul')
         var li = $(e.target.closest('li'))
         var ulLis = $(ul.children())
-        var lis = li.siblings()
-        var firstNum = (ulLis[0].innerText)*1
+        var lis = $(ul.children())
+        morePageNextNum != undefined && lis.splice(morePageNextNum, 1)
+        morePagePrevNum != undefined && lis.splice(morePagePrevNum, 1)
+        /*var firstNum
+        if(morePagePrevNum != undefined) {
+            lis.splice(morePagePrevNum, 1)
+            firstNum = (lis[1].innerText)*1
+        } else {
+            firstNum = (lis[0].innerText)*1
+        }*/
+        // var firstNum = (ulLis[0].innerText)*1
         var desc3 = (ulLis[ulLis.length-3].innerText)*1
         var lastNum = (ulLis[ulLis.length-1].innerText)*1
             // console.log(firstNum, desc3, lastNum)
@@ -160,29 +217,81 @@ $(document).ready(function(){
         if(e.target.tagName === 'LI' && e.target.className != 'morePageNext') {
             var curIdx = li.index()
             var curNum = li.text()*1
+            if(curNum === activeNum) {
+                return
+            }
             ulLis.removeClass('active').eq(curIdx).addClass('active')
             activeNum = getActiveNum()
-            if(curIdx > 0) {
-                prev.css({
-                    'color': '#333',
-                    'cursor': 'pointer',
-                })
-                prev.removeClass('disabled')
-            } else {
-                prev.css({
-                    'color': '#aaa',
-                    'cursor': 'not-allowed'
-                })
-                prev.addClass('disabled')
+            /*if(curNum === desc3) { // 点击 ... 前
+                //addHtml(ul, firstNum, desc3, lastNum, lisCount)
+                // addHtml(ul, firstNum, lis.length - 2, lastNum, lisCount)
             }
+            if(curNum === 1 || curNum === 2) { // 点击 ... 前
+                //addHtml(ul, firstNum, desc3, lastNum, lisCount)
+                // addHtml(ul, firstNum, lis.length - 2, lastNum, lisCount)
+            }*/
+            morePageNextNum = getMorePageNextIdx()
+            morePagePrevNum = getMorePagePrevIdx()
+            /*if(morePagePrevNum != undefined && activeNum === $(ulLis[morePagePrevNum + 1]).text()*1) {
+                console.log('11111111')
+            }*/
 
-            if(curNum === desc3) {
-                addHtml(ul, firstNum, desc3, lastNum, lisCount)
+            if(activeNum === 1) {
+                addHtml(ul, 1, ulLis.length, lastNum, ulLis.length-2)
+            } else if(activeNum === lastNum) {
+                addHtml(ul, lastNum-ulLis.length+2, lastNum, lastNum, ulLis.length-2)
+            } else if(morePagePrevNum != undefined && 
+                activeNum === $(ulLis[morePagePrevNum + 1]).text()*1 && 
+                morePageNextNum === undefined) { // 无右... 点击...后一个
+                addHtml(ul, activeNum-ulLis.length+6, activeNum+2, lastNum, ulLis.length-2)
+            } else if(morePageNextNum != undefined && 
+                activeNum === $(ulLis[morePageNextNum - 1]).text()*1 && 
+                morePagePrevNum === undefined) { // 无左... 点击...前一个
+                addHtml(ul, activeNum-parseInt(ulLis.length/2) + 2, activeNum+parseInt(ulLis.length/2)- 1, lastNum, ulLis.length-2)
+            } else if(morePagePrevNum != undefined && 
+                activeNum === $(ulLis[morePagePrevNum + 1]).text()*1 && 
+                morePageNextNum != undefined) { // 有 左右... 点击 左
+                if(activeNum-parseInt(ulLis.length/2) + 2 < 3) {
+                    console.log('--------')
+                    addHtml(ul, 1, 1+ ulLis.length-2, lastNum, ulLis.length-2)
+                } else {
+                    addHtml(ul, activeNum-parseInt(ulLis.length/2)+ 2, activeNum+parseInt(ulLis.length/2)- 3, lastNum, ulLis.length-2)
+                }
+            } else if(morePagePrevNum != undefined && 
+                activeNum === $(ulLis[morePageNextNum - 1]).text()*1 && 
+                morePageNextNum != undefined) { // 有 左右... 点击 右
+                if(activeNum+parseInt(ulLis.length/2)- 2 > lastNum-3) {
+                    addHtml(ul, lastNum-ulLis.length+2, lastNum, lastNum, ulLis.length-2)
+                } else {
+                    addHtml(ul, activeNum-parseInt(ulLis.length/2) + 3, activeNum+parseInt(ulLis.length/2)- 2, lastNum, ulLis.length-2)
+                }
+            } else if(activeNum === getMorePageNextIdx()) {
+                addHtml(ul, lastNum-ulLis.length, lastNum, lastNum, ulLis.length-2)
             }
-
-            setActive(curNum)
-        } else if(e.target.className === 'morePageNext') {
-            addHtml(ul, firstNum, desc3, lastNum, lisCount)
+            setActive(activeNum)
+        } /*else if(e.target.className === 'morePageNext') {
+            //addHtml(ul, firstNum, desc3, lastNum, lisCount)
+            // addHtml(ul, firstNum, lis.length - 2, lastNum, lisCount)
+            setActive(activeNum)
+        }*/ else if(e.target.className.indexOf('prev') > -1) {
+            if(activeNum != 1) {
+                var activeIdx = getActiveIdx()
+                console.log(morePagePrevNum, activeIdx)
+                $(lis[activeIdx-1]).removeClass('active')
+                $(lis[activeIdx-2]).addClass('active')
+                activeNum = getActiveNum()
+            }
+        } else if(e.target.className.indexOf('next') > -1) {
+            if(activeNum != lastNum) {
+                var activeIdx = getActiveIdx()
+                $(lis[activeIdx-1]).removeClass('active')
+                $(lis[activeIdx]).addClass('active')
+                activeNum = getActiveNum()
+            }
+            if(activeNum === desc3) {
+                //addHtml(ul, firstNum, desc3, lastNum, lisCount)
+                // addHtml(ul, firstNum, lis.length - 2, lastNum, lisCount)
+            }
             setActive(activeNum)
         }
         
